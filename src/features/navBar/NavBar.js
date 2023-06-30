@@ -1,7 +1,8 @@
 import "./NavBar.css";
 import logo from "../../images/Logo.svg";
+import { CategoryTag } from "../../components/categoryTag/CategoryTag";
 
-const selected_categories = ["1", "2"];
+const selected_categories = ["Popular"];
 
 export function NavBar() {
   const displayNavBar = "categories";
@@ -9,25 +10,25 @@ export function NavBar() {
     <header className="header">
       <div
         className={
-          displayNavBar === "categories" ? "category_display" : "hidden"
+          displayNavBar === "categories" ? "display" : "hidden"
         }
       >
         <div className="logo_container">
-          <img src={logo} alt="FR logo" className="FR_logo"/>
+          <img src={logo} alt="FR logo" className="FR_logo" />
         </div>
         <div className="selected_categories_container">
-          {/* {selected_categories.map((category) => (
-            <CategoryCard category={category} />
-          ))} */}
+          {selected_categories.map((category, index) => (
+            <CategoryTag key={index} category={category} />
+          ))}
         </div>
       </div>
-      <div className={displayNavBar === "route" ? "route_display" : "hidden"}>
-        <div className="back_logo_container">
-          <h2>
-            <i className="fa-solid fa-arrow-left"></i>
-          </h2>
+      <div className={displayNavBar === "route" ? "display" : "hidden"}>
+        <div className="logo_container">
+          <i className="fa-solid fa-arrow-left"></i>
         </div>
-        <div className="route_container"></div>
+        <div className="route_container">
+          <p>/r/maybemaybenmayebe/POST_TITLE</p>
+        </div>
       </div>
     </header>
   );

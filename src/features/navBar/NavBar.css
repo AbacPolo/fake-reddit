@@ -1,43 +1,49 @@
-.hidden {
-    display: none;
-}
-
 .header {
-    width: 100%;
-    height: 50px;
-    border-bottom: 2px solid #AAAAAA;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    box-shadow: 0px 2px 5px 0px rgba(37, 37, 37, 0.30);;
+  width: 100%;
+  min-height: 50px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #aaaaaa;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  box-shadow: 0px 2px 5px 0px rgba(37, 37, 37, 0.3);
 }
 
-.header h1 {
-    margin: 0;
-    line-height: 50px;
+.display {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 12px;
 }
 
-.category_display {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: left;
-    gap: 12px;
+.hidden {
+  display: none;
 }
 
 .logo_container {
-    height: 100%;
-    display: flex;
-    align-content: center;
-    align-items: center;
+  height: 34px;
+  display: flex;
+  align-content: center;
+  align-items: center;
 }
 
 .FR_logo {
-    height: 40px;
+  height: 100%;
 }
 
-.route {
-    width: 100%;
-    height: 100%;
+.selected_categories_container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.fa-arrow-left {
+  font-size: 1.5rem;
+}
+
+.route_container p {
+  margin: 0;
 }
