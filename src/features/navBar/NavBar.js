@@ -5,7 +5,7 @@ import { CategoryTag } from "../../components/categoryTag/CategoryTag";
 const selected_categories = ["Popular"];
 
 export function NavBar() {
-  const displayNavBar = "categories";
+  const displayNavBar = "route";
   return (
     <header className="header">
       <div
