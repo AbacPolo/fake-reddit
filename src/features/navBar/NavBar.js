@@ -3,7 +3,7 @@ import logo from "../../images/Logo.svg";
 import { CategoryTag } from "../../components/categoryTag/CategoryTag";
 
 const selected_categories = ["Popular"];
-const displayNavBar = "route";
+const displayNavBar = "categories";
 
 export function NavBar() {
   return (

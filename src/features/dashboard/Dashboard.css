@@ -1,0 +1,7 @@
+.Dashboard_Container {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  z-index: 1;
+  overflow-y: scroll;
+}

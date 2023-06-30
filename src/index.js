@@ -5,34 +5,34 @@ import { store } from "./app/store";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
 import ErrorPage from "./routes/error-page";
+import { Dashboard } from "./features/dashboard/Dashboard";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />,
-    children: [
-      // {
-      //   path: "dashboard",
-      //   element: <Dashboard />,
-      // },
-      // {
-      //   path: "subreddit/:post_name",
-      //   element: <Post />,
-      // },
-    ],
-  },
-]);
+const appRouter = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App />}>
+      <Route path="error-page" element={<ErrorPage />} />
+      <Route path="/" element={<Dashboard />} />
+      <Route path=":type" element={<Dashboard />} />
+      {/* <Route path=':type/:id' element={<PetDetailsPage />} /> */}
+      {/* <Route path='search' element={<SearchPage />} /> */}
+    </Route>
+  )
+);
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <RouterProvider router={appRouter} />
     </Provider>
   </React.StrictMode>
 );
