@@ -1,0 +1,46 @@
+.PostCard_Container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.PostCard_Container p {
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 200;
+}
+
+.PostCard_Container h3 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+.Poste_Image_Container {
+  width: 100%;
+  border: 2px solid #aaaaaa;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.Poste_Image {
+  width: 100%;
+}
+
+.Info_Container {
+    display: flex;
+    width: 100%;
+    justify-items: center;
+    text-align: center;
+}
+
+.Info_Box {
+    width: 50%;
+    box-sizing: border-box;
+    color: #252525;
+}

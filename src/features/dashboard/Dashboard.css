@@ -1,7 +1,18 @@
 .Dashboard_Container {
+  box-sizing: border-box;
   position: absolute;
   top: 52px;
   left: 0;
   z-index: 1;
+  width: 100%;
+  background-color: #aaaaaa;
+  height: calc(100% - 50px - 3.5rem);
   overflow-y: scroll;
+}
+
+.Dashboard_Wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
 }

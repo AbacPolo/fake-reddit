@@ -1,34 +1,39 @@
 import "./Dashboard.css";
+import { PostCard } from "../postCard/PostCard";
+import imagePlaceholder from "../../images/test_image.jpg";
 
 const arrayOfPosts = [
   {
-    subreddit: "maybe",
+    subreddit: "maybemaybemaybe",
     title: "Awesome",
-    picture:
-      "C:/Users/Frikiabak/Dropbox/Programmatione/Projects/fake-reddit/src/images/test_image.jpg",
+    imageLink: imagePlaceholder,
     upvotes: 27,
     comments: 13,
   },
   {
-    subreddit: "maybe",
+    subreddit: "maybemaybemaybe",
     title: "Awesome",
-    picture:
-      "C:/Users/Frikiabak/Dropbox/Programmatione/Projects/fake-reddit/src/images/test_image.jpg",
-    upvotes: 27,
-    comments: 13,
+    imageLink: imagePlaceholder,
+    upvotes: 1352,
+    comments: 563,
   },
   {
-    subreddit: "maybe",
+    subreddit: "maybemaybemaybe",
     title: "Awesome",
-    picture:
-      "C:/Users/Frikiabak/Dropbox/Programmatione/Projects/fake-reddit/src/images/test_image.jpg",
+    imageLink: imagePlaceholder,
     upvotes: 137,
     comments: 57,
   },
 ];
 
 export function Dashboard() {
-  return <div className="Dashboard_Container">
-    {arrayOfPosts.map((post) => <PostCard information={post}/>)}
-  </div>;
+  return (
+    <div className="Dashboard_Container">
+      <div className="Dashboard_Wrapper">
+        {arrayOfPosts.map((post, index) => (
+          <PostCard key={index} information={post} />
+        ))}
+      </div>
+    </div>
+  );
 }
