@@ -21,9 +21,21 @@ const predefinedCategories = [
 
 export function NavMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [preSelectedCategories, setPreSelectedCategories] = useState([]);
 
   const handleMenuState = () => {
     isMenuOpen === false ? setIsMenuOpen(true) : setIsMenuOpen(false);
+  };
+
+  const handleCategoryTagClick = (category) => {
+    if (preSelectedCategories.includes(category)) {
+      const removeCategoryToSelected = preSelectedCategories.filter(
+        (item) => item !== category
+      );
+      setPreSelectedCategories(removeCategoryToSelected);
+    } else {
+      setPreSelectedCategories([...preSelectedCategories, category]);
+    }
   };
 
   return (
@@ -62,9 +74,15 @@ export function NavMenu() {
             <h3>Categories</h3>
             <div className="CategoriesTags_Container">
               {predefinedCategories.map((category, index) => (
-                <CategoryTag key={index} category={category} />
+                <CategoryTag
+                  key={index}
+                  category={category}
+                  preSelectedCategories={preSelectedCategories}
+                  onClick={handleCategoryTagClick}
+                />
               ))}
             </div>
+            <button></button>
           </div>
         </div>
       </div>

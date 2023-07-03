@@ -1,11 +1,29 @@
-import './CategoryTag.css';
+import classNames from "classnames";
+import "./CategoryTag.css";
+import { useEffect, useState } from "react";
 
 export function CategoryTag(props) {
-  const { category } = props;
-  console.log(category);
+  const { category, onClick, preSelectedCategories } = props;
+  const [activeTag, setActiveTag] = useState(false);
+
+  useEffect(() => {
+    if (preSelectedCategories !== undefined) {
+      if (preSelectedCategories.includes(category) === true) {
+        setActiveTag(true);
+      } else {
+        setActiveTag(false)
+      }
+    }
+  }, [preSelectedCategories, category]);
+
   return (
-    <div className="Tag_Container">
+    <button
+      className={classNames("Tag_Container", {
+        CategoryTagSelected: activeTag === true,
+      })}
+      onClick={() => onClick(category)}
+    >
       <p className="Category_Name">{category}</p>
-    </div>
+    </button>
   );
 }
