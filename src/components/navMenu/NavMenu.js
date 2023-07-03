@@ -3,14 +3,20 @@ import classNames from "classnames";
 import { CategoryTag } from "../categoryTag/CategoryTag";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addSelectedCategory, removeSelectedCategory, activeCategories, predefinedCategories } from "./navMenuSlice";
+import {
+  addSelectedCategory,
+  removeSelectedCategory,
+  activeCategories,
+  predefinedCategories,
+} from "./navMenuSlice";
 
 export function NavMenu(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
   const selectedCategories = useSelector(activeCategories);
   const defaultCategories = useSelector(predefinedCategories);
   const dispatch = useDispatch();
-  
+
   const handleMenuState = () => {
     isMenuOpen === false ? setIsMenuOpen(true) : setIsMenuOpen(false);
   };
@@ -21,6 +27,11 @@ export function NavMenu(props) {
     } else {
       dispatch(removeSelectedCategory(category));
     }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Search Term', searchInput);
   };
 
   return (
@@ -48,12 +59,18 @@ export function NavMenu(props) {
             <button className="BackLogo_Container" onClick={handleMenuState}>
               <i className="fa-solid fa-arrow-down"></i>
             </button>
-            <div className="SearchInput_Container">
-              <input
-                className="SearchInput"
-                placeholder="Search on Reddit"
-              ></input>
-            </div>
+            <form className="SearchInputForm_Container" onSubmit={handleSubmit}>
+              <div className="SearchInput_Container">
+                <input
+                  className="SearchInput"
+                  placeholder="Search on Reddit"
+                  id="searchInput"
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.currentTarget.value)}
+                  type="text"
+                ></input>
+              </div>
+            </form>
           </div>
           <div className="Categories_Container">
             <h3>Categories</h3>

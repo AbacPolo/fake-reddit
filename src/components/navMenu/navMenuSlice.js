@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const categoriesSlice = createSlice({
   name: "categories",
@@ -37,8 +37,7 @@ export const categoriesSlice = createSlice({
   },
 });
 
-export const activeCategories = (state) =>
-  state.categories.selectedCategories;
+export const activeCategories = (state) => state.categories.selectedCategories;
 export const predefinedCategories = (state) =>
   state.categories.predefinedCategories;
 export const { addSelectedCategory, removeSelectedCategory } =

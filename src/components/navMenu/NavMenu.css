@@ -80,6 +80,13 @@
   box-sizing: border-box;
 }
 
+.SearchInputForm_Container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 .SearchInput_Container {
   width: 100%;
   display: flex;

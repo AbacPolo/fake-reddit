@@ -11,7 +11,7 @@ export function CategoryTag(props) {
       if (selectedCategories.includes(category) === true) {
         setActiveTag(true);
       } else {
-        setActiveTag(false)
+        setActiveTag(false);
       }
     }
   }, [selectedCategories, category]);
