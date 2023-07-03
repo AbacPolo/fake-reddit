@@ -27,6 +27,7 @@
   border: 2px solid #aaaaaa;
   border-radius: 6px;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .Poste_Image {

@@ -6,26 +6,33 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import {
-  Route,
   RouterProvider,
   createBrowserRouter,
-  createRoutesFromElements,
 } from "react-router-dom";
-import ErrorPage from "./routes/error-page";
 import { Dashboard } from "./features/dashboard/Dashboard";
+import { PostPage } from "./features/postPage/PostPage";
+import ErrorPage from "./error-page/error-page";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 
-const appRouter = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      <Route path="error-page" element={<ErrorPage />} />
-      <Route path="/" element={<Dashboard />} />
-      {/* <Route path=':type/:id' element={<PostPage />} /> */}
-    </Route>
-  )
-);
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Dashboard />,
+      },
+      {
+        path: ":subreddit/:title",
+        element: <PostPage />,
+      },
+    ],
+  },
+]);
 
 root.render(
   <React.StrictMode>
