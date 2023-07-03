@@ -2,9 +2,11 @@
   background: #d9d9d9;
   height: fit-content;
   max-height: 26px;
+  width: fit-content;
   padding: 5px 10px;
   border: 0px solid transparent;
   border-radius: 13px;
+
 }
 
 .Tag_Container p {

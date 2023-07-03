@@ -4,12 +4,16 @@
   left: 0;
   width: 100%;
   z-index: 3;
+  transition: bottom 1s;
 }
 
 .Search_Button_Container {
-  position: absolute;
-  bottom: calc(3.5rem - (5rem / 2));
-  left: calc(50% - (5rem / 2));
+  position: relative;
+  display: flex;
+  justify-content: center;
+  bottom: -2.5rem;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .Search_Button {
@@ -47,4 +51,93 @@
 .FAQ_Button {
   border-left: 1px solid #252525;
   border-right: 0px solid transparent;
+}
+
+.PopUpMenu_Container {
+  background-color: #fff;
+  height: 0vh;
+  width: 100%;
+  transition: height 1s;
+}
+
+.MenuIsOpen {
+  height: 100vh;
+}
+
+.PopUpMenu_Wrapper {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.SearchBar_Container {
+  display: flex;
+  gap: 12px;
+  border-bottom: 2px solid #aaaaaa;
+  box-shadow: 0px 2px 5px 0px rgba(37, 37, 37, 0.3);
+  height: 52px;
+  padding: 9px 12px 9px;
+  box-sizing: border-box;
+}
+
+.SearchInput_Container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.BackLogo_Container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    border: 0 solid transparent;
+    background: none;
+    width: fit-content;
+    padding: 0;
+}
+
+.fa-arrow-down {
+  font-size: 1.5rem;
+}
+
+.SearchInput {
+  width: 100%;
+  border: 0 solid transparent;
+  border-radius: 6px;
+  background-color: #F0F0F0;
+  padding-left: 6px;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  color: #8B8B8B;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #8B8B8B;
+}
+
+::placeholder {
+  color: #8B8B8B;
+}
+
+.Categories_Container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 12px;
+  gap: 1rem;
+}
+
+.Categories_Container h3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.CategoriesTags_Container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
