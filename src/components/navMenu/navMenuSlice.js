@@ -34,12 +34,15 @@ export const categoriesSlice = createSlice({
       }
       state.selectedCategories = removeCategorySelected;
     },
+    addCustomSearch: (state, action) => {
+      state.selectedCategories = [action.payload];
+    },
   },
 });
 
 export const activeCategories = (state) => state.categories.selectedCategories;
 export const predefinedCategories = (state) =>
   state.categories.predefinedCategories;
-export const { addSelectedCategory, removeSelectedCategory } =
+export const { addSelectedCategory, removeSelectedCategory, addCustomSearch } =
   categoriesSlice.actions;
 export default categoriesSlice.reducer;

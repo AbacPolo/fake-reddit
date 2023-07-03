@@ -8,6 +8,7 @@ import {
   removeSelectedCategory,
   activeCategories,
   predefinedCategories,
+  addCustomSearch
 } from "./navMenuSlice";
 
 export function NavMenu(props) {
@@ -31,7 +32,11 @@ export function NavMenu(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Search Term', searchInput);
+    if (!selectedCategories.includes(searchInput)) {
+      dispatch(addCustomSearch(searchInput));
+    } 
+    setSearchInput('');
+    setIsMenuOpen(false);
   };
 
   return (
