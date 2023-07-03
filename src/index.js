@@ -22,9 +22,7 @@ const appRouter = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route path="error-page" element={<ErrorPage />} />
       <Route path="/" element={<Dashboard />} />
-      <Route path=":type" element={<Dashboard />} />
-      {/* <Route path=':type/:id' element={<PetDetailsPage />} /> */}
-      {/* <Route path='search' element={<SearchPage />} /> */}
+      {/* <Route path=':type/:id' element={<PostPage />} /> */}
     </Route>
   )
 );

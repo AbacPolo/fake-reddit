@@ -1,12 +1,11 @@
 import "./NavBar.css";
 import logo from "../../images/Logo.svg";
 import { CategoryTag } from "../../components/categoryTag/CategoryTag";
-import { useState } from "react";
 
 const displayNavBar = "categories";
 
-export function NavBar() {
-  const [selectedCategories, setSelectedCategories] = useState(["Popular"]);
+export function NavBar(props) {
+  const { selectedCategories, setSelectedCategories } = props;
 
   const handleSelectedCategoryClick = (category) => {
     if (selectedCategories.length > 1) {
@@ -25,7 +24,11 @@ export function NavBar() {
         </div>
         <div className="selected_categories_container">
           {selectedCategories.map((category, index) => (
-            <CategoryTag key={index} category={category} onClick={handleSelectedCategoryClick}/>
+            <CategoryTag
+              key={index}
+              category={category}
+              onClick={handleSelectedCategoryClick}
+            />
           ))}
         </div>
       </div>

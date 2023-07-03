@@ -3,38 +3,25 @@ import classNames from "classnames";
 import { CategoryTag } from "../categoryTag/CategoryTag";
 import { useState } from "react";
 
-const predefinedCategories = [
-  "Videogames",
-  "Sports",
-  "Business",
-  "Television",
-  "Celebs",
-  "Animals and Mascots",
-  "Anime",
-  "Art",
-  "Cars",
-  "DIY",
-  "Culture, race and ethnicities",
-  "Food",
-  "History",
-];
-
-export function NavMenu() {
+export function NavMenu(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [preSelectedCategories, setPreSelectedCategories] = useState([]);
+  const { predefinedCategories, selectedCategories, setSelectedCategories } = props;
 
   const handleMenuState = () => {
     isMenuOpen === false ? setIsMenuOpen(true) : setIsMenuOpen(false);
   };
 
   const handleCategoryTagClick = (category) => {
-    if (preSelectedCategories.includes(category)) {
-      const removeCategoryToSelected = preSelectedCategories.filter(
+    if (selectedCategories.includes(category)) {
+      let removeCategorySelected = selectedCategories.filter(
         (item) => item !== category
       );
-      setPreSelectedCategories(removeCategoryToSelected);
+      if (removeCategorySelected.length < 1) {
+        removeCategorySelected = ["Popular"];
+      }
+      setSelectedCategories(removeCategorySelected);
     } else {
-      setPreSelectedCategories([...preSelectedCategories, category]);
+      setSelectedCategories([...selectedCategories, category]);
     }
   };
 
@@ -77,12 +64,11 @@ export function NavMenu() {
                 <CategoryTag
                   key={index}
                   category={category}
-                  preSelectedCategories={preSelectedCategories}
+                  selectedCategories={selectedCategories}
                   onClick={handleCategoryTagClick}
                 />
               ))}
             </div>
-            <button></button>
           </div>
         </div>
       </div>

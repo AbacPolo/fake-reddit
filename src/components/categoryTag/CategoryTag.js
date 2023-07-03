@@ -3,18 +3,18 @@ import "./CategoryTag.css";
 import { useEffect, useState } from "react";
 
 export function CategoryTag(props) {
-  const { category, onClick, preSelectedCategories } = props;
+  const { category, onClick, selectedCategories } = props;
   const [activeTag, setActiveTag] = useState(false);
 
   useEffect(() => {
-    if (preSelectedCategories !== undefined) {
-      if (preSelectedCategories.includes(category) === true) {
+    if (selectedCategories !== undefined) {
+      if (selectedCategories.includes(category) === true) {
         setActiveTag(true);
       } else {
         setActiveTag(false)
       }
     }
-  }, [preSelectedCategories, category]);
+  }, [selectedCategories, category]);
 
   return (
     <button

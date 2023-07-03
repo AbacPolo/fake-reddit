@@ -17,7 +17,8 @@
   box-shadow: 1px 2px 4px 0px rgba(37, 37, 37, 0.6);
 }
 
-.Tag_Container p {
+.Tag_Container .Category_Name {
   margin: 0;
   line-height: 16px;
+  white-space: nowrap;
 }
