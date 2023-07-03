@@ -1,19 +1,17 @@
 import "./NavBar.css";
 import logo from "../../images/Logo.svg";
 import { CategoryTag } from "../../components/categoryTag/CategoryTag";
+import { useDispatch, useSelector } from "react-redux";
+import { removeSelectedCategory, activeCategories } from "../../components/navMenu/navMenuSlice";
 
 const displayNavBar = "categories";
 
 export function NavBar(props) {
-  const { selectedCategories, setSelectedCategories } = props;
+  const selectedCategories = useSelector(activeCategories);
+  const dispatch = useDispatch();
 
-  const handleSelectedCategoryClick = (category) => {
-    if (selectedCategories.length > 1) {
-      const removeCategory = selectedCategories.filter(
-        (item) => item !== category
-      );
-      setSelectedCategories(removeCategory);
-    }
+  const handleRemoveSelectedCategory = (category) => {
+    dispatch(removeSelectedCategory(category));
   };
 
   return (
@@ -27,7 +25,7 @@ export function NavBar(props) {
             <CategoryTag
               key={index}
               category={category}
-              onClick={handleSelectedCategoryClick}
+              onClick={handleRemoveSelectedCategory}
             />
           ))}
         </div>

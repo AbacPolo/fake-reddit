@@ -2,26 +2,24 @@ import "./NavMenu.css";
 import classNames from "classnames";
 import { CategoryTag } from "../categoryTag/CategoryTag";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addSelectedCategory, removeSelectedCategory, activeCategories, predefinedCategories } from "./navMenuSlice";
 
 export function NavMenu(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { predefinedCategories, selectedCategories, setSelectedCategories } = props;
-
+  const selectedCategories = useSelector(activeCategories);
+  const defaultCategories = useSelector(predefinedCategories);
+  const dispatch = useDispatch();
+  
   const handleMenuState = () => {
     isMenuOpen === false ? setIsMenuOpen(true) : setIsMenuOpen(false);
   };
 
-  const handleCategoryTagClick = (category) => {
-    if (selectedCategories.includes(category)) {
-      let removeCategorySelected = selectedCategories.filter(
-        (item) => item !== category
-      );
-      if (removeCategorySelected.length < 1) {
-        removeCategorySelected = ["Popular"];
-      }
-      setSelectedCategories(removeCategorySelected);
+  const handleSelectCategory = (category) => {
+    if (!selectedCategories.includes(category)) {
+      dispatch(addSelectedCategory(category));
     } else {
-      setSelectedCategories([...selectedCategories, category]);
+      dispatch(removeSelectedCategory(category));
     }
   };
 
@@ -60,12 +58,12 @@ export function NavMenu(props) {
           <div className="Categories_Container">
             <h3>Categories</h3>
             <div className="CategoriesTags_Container">
-              {predefinedCategories.map((category, index) => (
+              {defaultCategories.map((category, index) => (
                 <CategoryTag
                   key={index}
                   category={category}
                   selectedCategories={selectedCategories}
-                  onClick={handleCategoryTagClick}
+                  onClick={handleSelectCategory}
                 />
               ))}
             </div>
