@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   removeSelectedCategory,
   activeCategories,
-} from "../../components/navMenu/navMenuSlice";
+} from "../../features/navMenu/navMenuSlice";
 import { displayNavBar, setPostActive, setPostNotActive } from "./navBarSlice";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";

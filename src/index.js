@@ -9,8 +9,8 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
-import { Dashboard } from "./features/dashboard/Dashboard";
-import { PostPage } from "./features/postPage/PostPage";
+import { Dashboard } from "./components/dashboard/Dashboard";
+import { PostPage } from "./components/postPage/PostPage";
 import ErrorPage from "./error-page/error-page";
 
 const container = document.getElementById("root");

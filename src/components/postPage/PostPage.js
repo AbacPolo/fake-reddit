@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { activePostId } from "../navBar/navBarSlice";
+import { activePostId } from "../../features/navBar/navBarSlice";
 import "./PostPage.css";
 import { useOutletContext } from "react-router-dom";
 

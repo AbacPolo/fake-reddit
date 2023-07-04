@@ -1,6 +1,6 @@
 import "./NavMenu.css";
 import classNames from "classnames";
-import { CategoryTag } from "../categoryTag/CategoryTag";
+import { CategoryTag } from "../../components/categoryTag/CategoryTag";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {

@@ -1,7 +1,7 @@
 import "./PostCard.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setPostActive } from "../navBar/navBarSlice";
+import { setPostActive } from "../../features/navBar/navBarSlice";
 
 export function PostCard({ information }) {
   const { id, subreddit, title, imageLink, upvotes, comments } = information;
