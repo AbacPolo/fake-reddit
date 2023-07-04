@@ -11,6 +11,7 @@ import {
 } from "./navMenuSlice";
 import { Link } from "react-router-dom";
 import { CategoriesDisplay } from "../../components/categoriesDisplay/CategoriesDisplay";
+import { SearchBar } from "../../components/searchBar/SearchBar";
 
 export function NavMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,18 +68,7 @@ export function NavMenu() {
                 <i className="fa-solid fa-arrow-down"></i>
               </button>
             </Link>
-            <form className="SearchInputForm_Container" onSubmit={handleSubmit}>
-              <div className="SearchInput_Container">
-                <input
-                  className="SearchInput"
-                  placeholder="Search on Reddit"
-                  id="searchInput"
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.currentTarget.value)}
-                  type="text"
-                ></input>
-              </div>
-            </form>
+            <SearchBar handleSubmit={handleSubmit} searchInput={searchInput} setSearchInput={setSearchInput} />
           </div>
           <CategoriesDisplay
             defaultCategories={defaultCategories}
