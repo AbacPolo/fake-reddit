@@ -131,24 +131,3 @@
 ::placeholder {
   color: #8B8B8B;
 }
-
-.Categories_Container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  padding: 12px;
-  gap: 1rem;
-}
-
-.Categories_Container h3 {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 20px;
-}
-
-.CategoriesTags_Container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}

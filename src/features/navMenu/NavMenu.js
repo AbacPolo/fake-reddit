@@ -1,6 +1,5 @@
 import "./NavMenu.css";
 import classNames from "classnames";
-import { CategoryTag } from "../../components/categoryTag/CategoryTag";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -11,8 +10,9 @@ import {
   addCustomSearch,
 } from "./navMenuSlice";
 import { Link } from "react-router-dom";
+import { CategoriesDisplay } from "../../components/categoriesDisplay/CategoriesDisplay";
 
-export function NavMenu(props) {
+export function NavMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const selectedCategories = useSelector(activeCategories);
@@ -80,19 +80,11 @@ export function NavMenu(props) {
               </div>
             </form>
           </div>
-          <div className="Categories_Container">
-            <h3>Categories</h3>
-            <div className="CategoriesTags_Container">
-              {defaultCategories.map((category, index) => (
-                <CategoryTag
-                  key={index}
-                  category={category}
-                  selectedCategories={selectedCategories}
-                  onClick={handleSelectCategory}
-                />
-              ))}
-            </div>
-          </div>
+          <CategoriesDisplay
+            defaultCategories={defaultCategories}
+            selectedCategories={selectedCategories}
+            handleSelectCategory={handleSelectCategory}
+          />
         </div>
       </div>
     </div>
