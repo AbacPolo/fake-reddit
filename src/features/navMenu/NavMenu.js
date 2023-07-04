@@ -50,18 +50,23 @@ export function NavMenu() {
     <div className="Menu_Container">
       <div className="NavMenu_Container">
         <div className="Search_Button_Container">
-          <button className="Search_Button" onClick={handleMenuState}>
+          <button
+            className="Search_Button"
+            aria-label="Search Button"
+            onClick={handleMenuState}
+          >
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
         <div className="Nav_Buttons_Container">
           <button
             className="Nav_Button Popular_Button"
+            aria-label="Popular Button"
             onClick={handleGoToPopular}
           >
             <i className="fa-solid fa-arrow-trend-up"></i> Popular
           </button>
-          <button className="Nav_Button FAQ_Button">
+          <button className="Nav_Button FAQ_Button" aria-label="FAQ Button">
             <i className="fa-regular fa-circle-question"></i> FAQ
           </button>
         </div>
@@ -74,7 +79,11 @@ export function NavMenu() {
         <div className="PopUpMenu_Wrapper">
           <div className="SearchBar_Container">
             <Link to={`/`} className="SearchBar_Link_Container">
-              <button className="BackLogo_Container" onClick={handleMenuState}>
+              <button
+                className="BackLogo_Container"
+                aria-label="Go Back Button"
+                onClick={handleMenuState}
+              >
                 <i className="fa-solid fa-arrow-down"></i>
               </button>
             </Link>

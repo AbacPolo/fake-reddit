@@ -21,6 +21,7 @@ export function CategoryTag(props) {
       className={classNames("Tag_Container", {
         CategoryTagSelected: activeTag === true,
       })}
+      aria-label="Category Button"
       onClick={() => onClick(category)}
     >
       <p className="Category_Name">{category}</p>
