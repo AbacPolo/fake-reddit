@@ -6,13 +6,16 @@ import {
   removeSelectedCategory,
   activeCategories,
 } from "../../components/navMenu/navMenuSlice";
-import { displayNavBar, setPostNotActive } from "./navBarSlice";
+import { displayNavBar, setPostActive, setPostNotActive } from "./navBarSlice";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 export function NavBar() {
   const selectedCategories = useSelector(activeCategories);
   const dispatch = useDispatch();
   const changeNavBar = useSelector(displayNavBar);
+  const location = useLocation();
 
   const handleRemoveSelectedCategory = (category) => {
     dispatch(removeSelectedCategory(category));
@@ -21,6 +24,14 @@ export function NavBar() {
   const handleExitPost = () => {
     dispatch(setPostNotActive());
   };
+
+  useEffect(() => {
+    if (location.pathname === "/" && changeNavBar !== "categories") {
+      dispatch(setPostNotActive());
+    } else if (location.pathname !== "/" && changeNavBar === "categories") {
+      dispatch(setPostActive());
+    }
+  }, [location, changeNavBar, dispatch]);
 
   return (
     <header className="header">
@@ -45,7 +56,7 @@ export function NavBar() {
           </div>
         </Link>
         <div className="route_container">
-          <p>/r/maybemaybenmayebe/POST_TITLE</p>
+          <p>{location.pathname}</p>
         </div>
       </div>
     </header>

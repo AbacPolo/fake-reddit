@@ -8,8 +8,9 @@ import {
   removeSelectedCategory,
   activeCategories,
   predefinedCategories,
-  addCustomSearch
+  addCustomSearch,
 } from "./navMenuSlice";
+import { Link } from "react-router-dom";
 
 export function NavMenu(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,8 +35,8 @@ export function NavMenu(props) {
     e.preventDefault();
     if (!selectedCategories.includes(searchInput)) {
       dispatch(addCustomSearch(searchInput));
-    } 
-    setSearchInput('');
+    }
+    setSearchInput("");
     setIsMenuOpen(false);
   };
 
@@ -61,9 +62,11 @@ export function NavMenu(props) {
       >
         <div className="PopUpMenu_Wrapper">
           <div className="SearchBar_Container">
-            <button className="BackLogo_Container" onClick={handleMenuState}>
-              <i className="fa-solid fa-arrow-down"></i>
-            </button>
+            <Link to={`/`} className="SearchBar_Link_Container">
+              <button className="BackLogo_Container" onClick={handleMenuState}>
+                <i className="fa-solid fa-arrow-down"></i>
+              </button>
+            </Link>
             <form className="SearchInputForm_Container" onSubmit={handleSubmit}>
               <div className="SearchInput_Container">
                 <input

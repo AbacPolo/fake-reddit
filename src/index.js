@@ -27,7 +27,7 @@ const appRouter = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: ":subreddit/:title",
+        path: "/r/:subreddit/:title",
         element: <PostPage />,
       },
     ],

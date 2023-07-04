@@ -80,6 +80,10 @@
   box-sizing: border-box;
 }
 
+.SearchBar_Link_Container {
+  display: flex;
+}
+
 .SearchInputForm_Container {
   width: 100%;
   display: flex;

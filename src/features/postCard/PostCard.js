@@ -12,7 +12,7 @@ export function PostCard({ information }) {
   }
 
   return (
-    <Link to={`${subreddit}/${title}`} onClick={() => handleEnterPost(id)}>
+    <Link to={`/r/${subreddit}/${title}`} onClick={() => handleEnterPost(id)}>
       <div className="PostCard_Container">
         <p>r/{subreddit}</p>
         <h3>{title}</h3>
