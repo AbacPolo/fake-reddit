@@ -8,7 +8,7 @@ import {
   activeCategories,
   predefinedCategories,
   addCustomSearch,
-  goToPopular
+  goToPopular,
 } from "./navMenuSlice";
 import { Link } from "react-router-dom";
 import { CategoriesDisplay } from "../../components/categoriesDisplay/CategoriesDisplay";
@@ -44,22 +44,27 @@ export function NavMenu() {
 
   const handleGoToPopular = () => {
     dispatch(goToPopular());
-  }
+  };
 
   return (
     <div className="Menu_Container">
-      <div className="Search_Button_Container">
-        <button className="Search_Button" onClick={handleMenuState}>
-          <i className="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
-      <div className="Nav_Buttons_Container">
-        <button className="Nav_Button Popular_Button" onClick={handleGoToPopular}>
-          <i className="fa-solid fa-arrow-trend-up"></i> Popular
-        </button>
-        <button className="Nav_Button FAQ_Button">
-          <i className="fa-regular fa-circle-question"></i> FAQ
-        </button>
+      <div className="NavMenu_Container">
+        <div className="Search_Button_Container">
+          <button className="Search_Button" onClick={handleMenuState}>
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        <div className="Nav_Buttons_Container">
+          <button
+            className="Nav_Button Popular_Button"
+            onClick={handleGoToPopular}
+          >
+            <i className="fa-solid fa-arrow-trend-up"></i> Popular
+          </button>
+          <button className="Nav_Button FAQ_Button">
+            <i className="fa-regular fa-circle-question"></i> FAQ
+          </button>
+        </div>
       </div>
       <div
         className={classNames("PopUpMenu_Container", {
@@ -73,7 +78,11 @@ export function NavMenu() {
                 <i className="fa-solid fa-arrow-down"></i>
               </button>
             </Link>
-            <SearchBar handleSubmit={handleSubmit} searchInput={searchInput} setSearchInput={setSearchInput} />
+            <SearchBar
+              handleSubmit={handleSubmit}
+              searchInput={searchInput}
+              setSearchInput={setSearchInput}
+            />
           </div>
           <CategoriesDisplay
             defaultCategories={defaultCategories}
