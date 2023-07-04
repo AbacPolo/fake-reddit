@@ -21,7 +21,12 @@
   display: flex;
   align-items: center;
   justify-content: left;
-  gap: 12px;
+  gap: 8px;
+}
+
+.back_arrow {
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .hidden {

@@ -1,11 +1,18 @@
 import "./PostCard.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setPostActive } from "../navBar/navBarSlice";
 
 export function PostCard({ information }) {
   const { id, subreddit, title, imageLink, upvotes, comments } = information;
+  const dispatch = useDispatch();
+
+  const handleEnterPost = (id) => {
+    dispatch(setPostActive(id));
+  }
 
   return (
-    <Link to={`${subreddit}/${title}`} state={id}>
+    <Link to={`${subreddit}/${title}`} onClick={() => handleEnterPost(id)}>
       <div className="PostCard_Container">
         <p>r/{subreddit}</p>
         <h3>{title}</h3>
