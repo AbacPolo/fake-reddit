@@ -1,14 +1,14 @@
 .PostPage_Container {
   box-sizing: border-box;
   position: absolute;
-  top: 52px;
+  top: 58px;
   left: 0;
   z-index: 1;
   width: 100%;
   background-color: #fff;
   height: calc(100% - 50px - 3.5rem);
   overflow-y: scroll;
-  padding-top: 1rem;
+  padding-top: 12px;
   padding-bottom: 3rem;
 }
 
