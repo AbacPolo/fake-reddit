@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { setPostActive } from "../../features/navBar/navBarSlice";
 
 export function PostCard({ information }) {
-  const { id, subreddit, title, imageLink, upvotes, comments } = information;
+  const { id, subreddit, title, imageLink, upvotes, commentsNumb } = information;
   const dispatch = useDispatch();
 
   const handleEnterPost = (id) => {
@@ -15,7 +15,7 @@ export function PostCard({ information }) {
     <Link to={`/r/${subreddit}/${title}`} onClick={() => handleEnterPost(id)}>
       <div className="PostCard_Container">
         <p>r/{subreddit}</p>
-        <h3>{title}</h3>
+        <h2>{title}</h2>
         <div className="Poste_Image_Container">
           <img className="Poste_Image" src={imageLink} alt="placeholder"></img>
         </div>
@@ -24,7 +24,7 @@ export function PostCard({ information }) {
             <i className="fa-solid fa-circle-up"></i> {upvotes}
           </div>
           <div className="Info_Box">
-            <i className="fa-solid fa-comments"></i> {comments}
+            <i className="fa-solid fa-comments"></i> {commentsNumb}
           </div>
         </div>
       </div>

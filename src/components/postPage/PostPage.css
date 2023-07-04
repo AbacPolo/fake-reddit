@@ -1,60 +1,67 @@
 .PostPage_Container {
-    box-sizing: border-box;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    background-color: #fff;
-    height: calc(100% - 50px - 3.5rem);
-    overflow-y: scroll;
-    padding-top: 16px;
-  }
-  
-  .PostPage_Wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
-    padding-left: 12px;
-    padding-right: 12px;
-    box-sizing: border-box;
-  }
-  
-  .PostTitle_Container {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .PostPage_Wrapper .Info_Box {
-    width: fit-content;
-    box-sizing: border-box;
-    color: #252525;
+  box-sizing: border-box;
+  position: absolute;
+  top: 52px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: #fff;
+  height: calc(100% - 50px - 3.5rem);
+  overflow-y: scroll;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
 }
 
-  .PostPage_Container h3 {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    width: fit-content;
-    margin: 0;
-  }
+.PostPage_Wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  box-sizing: border-box;
+}
 
-  .PostPage_Container p {
-    font-size: 1rem;
-    line-height: 1rem;
-    font-weight: 200;
-  }
+.PostTitle_Container {
+  display: flex;
+  justify-content: space-between;
+}
 
-  .CommentsTitle_Container {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .PostPage_Container h4 {
-    font-size: 1.2rem;
-    line-height: 1.2rem;
-    font-weight: 600;
-  }
+.PostPage_Wrapper .Info_Box {
+  width: fit-content;
+  box-sizing: border-box;
+  color: #252525;
+}
+
+.PostPage_Container h2 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: fit-content;
+  margin: 0;
+}
+
+.PostPage_Container p {
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 200;
+}
+
+.CommentsTitle_Container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.PostPage_Container h3 {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: 600;
+}
+
+.CommentCards_Container {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}

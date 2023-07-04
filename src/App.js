@@ -12,7 +12,37 @@ const arrayOfPosts = [
     title: "Awesome",
     imageLink: imagePlaceholder,
     upvotes: 27,
-    comments: 13,
+    commentsNumb: 57,
+    comments: [
+      {
+        profilePic: "link",
+        name: "name",
+        time: "time",
+        content:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante neque, molestie et neque et, volutpat luctus ipsum. Duis nulla velit, luctus vitae accumsan in, pulvinar a risus.",
+      },
+      {
+        profilePic: "link",
+        name: "name",
+        time: "time",
+        content:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante neque, molestie et neque et, volutpat luctus ipsum. Duis nulla velit, luctus vitae accumsan in, pulvinar a risus.",
+      },
+      {
+        profilePic: "link",
+        name: "name",
+        time: "time",
+        content:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante neque, molestie et neque et, volutpat luctus ipsum. Duis nulla velit, luctus vitae accumsan in, pulvinar a risus.",
+      },
+      {
+        profilePic: "link",
+        name: "name",
+        time: "time",
+        content:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante neque, molestie et neque et, volutpat luctus ipsum. Duis nulla velit, luctus vitae accumsan in, pulvinar a risus.",
+      },
+    ],
   },
   {
     id: 2,
@@ -20,7 +50,8 @@ const arrayOfPosts = [
     title: "Awesome",
     imageLink: imagePlaceholder,
     upvotes: 1352,
-    comments: 563,
+    commentsNumb: 850,
+    comments: [],
   },
   {
     id: 3,
@@ -28,7 +59,8 @@ const arrayOfPosts = [
     title: "Awesome",
     imageLink: imagePlaceholder,
     upvotes: 137,
-    comments: 57,
+    commentsNumb: 96,
+    comments: [],
   },
 ];
 

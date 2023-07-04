@@ -2,11 +2,12 @@ import { useSelector } from "react-redux";
 import { activePostId } from "../../features/navBar/navBarSlice";
 import "./PostPage.css";
 import { useOutletContext } from "react-router-dom";
+import { CommentCard } from "../commentCard/CommentCard";
 
 export function PostPage() {
   const [arrayOfPosts] = useOutletContext();
   const postId = useSelector(activePostId);
-  const { subreddit, title, imageLink, upvotes, comments } =
+  const { subreddit, title, imageLink, upvotes, commentsNumb, comments } =
     arrayOfPosts[postId - 1];
 
   return (
@@ -14,7 +15,7 @@ export function PostPage() {
       <div className="PostPage_Wrapper">
         <p>r/{subreddit}</p>
         <div className="PostTitle_Container">
-          <h3>{title}</h3>
+          <h2>{title}</h2>
           <div className="Info_Box">
             <i className="fa-solid fa-circle-up"></i> {upvotes}
           </div>
@@ -23,12 +24,16 @@ export function PostPage() {
           <img className="Poste_Image" src={imageLink} alt="placeholder"></img>
         </div>
         <div className="CommentsTitle_Container">
-          <h4>Comments</h4>
+          <h3>Comments</h3>
           <div className="Info_Box">
-            <i className="fa-solid fa-comments"></i> {comments}
+            <i className="fa-solid fa-comments"></i> {commentsNumb}
           </div>
         </div>
-        <div className="CommentCards_Container"></div>
+        <div className="CommentCards_Container">
+          {comments.map((comment, index) => (
+            <CommentCard key={index} information={comment} />
+          ))}
+        </div>
       </div>
     </div>
   );

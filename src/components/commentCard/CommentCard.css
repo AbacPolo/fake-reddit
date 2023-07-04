@@ -1,0 +1,16 @@
+.CommentCard_Wrapper {
+  background-color: #f9f9f9;
+  padding: 12px;
+  border: 0 solid transparent;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.CommentCard_Header {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  gap: 8px;
+}
