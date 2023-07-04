@@ -1,0 +1,33 @@
+#error-page {
+  height: 100vh;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+#error-page h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+#error-page h3 {
+  font-weight: 500;
+}
+
+#error-page .ErrorMessage_Container {
+  background-color: #F9F9F9;
+  padding: 12px;
+  border: 0 solid transparent;
+  border-radius: 6px;
+}
+
+.ErrorMessage_Container p {
+  font-weight: 300;
+}
