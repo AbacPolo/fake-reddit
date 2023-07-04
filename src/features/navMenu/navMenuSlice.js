@@ -34,6 +34,9 @@ export const categoriesSlice = createSlice({
       }
       state.selectedCategories = removeCategorySelected;
     },
+    goToPopular: (state) => {
+      state.selectedCategories = ["Popular"];
+    },
     addCustomSearch: (state, action) => {
       state.selectedCategories = [action.payload];
     },
@@ -43,6 +46,10 @@ export const categoriesSlice = createSlice({
 export const activeCategories = (state) => state.categories.selectedCategories;
 export const predefinedCategories = (state) =>
   state.categories.predefinedCategories;
-export const { addSelectedCategory, removeSelectedCategory, addCustomSearch } =
-  categoriesSlice.actions;
+export const {
+  addSelectedCategory,
+  removeSelectedCategory,
+  goToPopular,
+  addCustomSearch,
+} = categoriesSlice.actions;
 export default categoriesSlice.reducer;

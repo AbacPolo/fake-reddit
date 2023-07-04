@@ -8,6 +8,7 @@ import {
   activeCategories,
   predefinedCategories,
   addCustomSearch,
+  goToPopular
 } from "./navMenuSlice";
 import { Link } from "react-router-dom";
 import { CategoriesDisplay } from "../../components/categoriesDisplay/CategoriesDisplay";
@@ -41,6 +42,10 @@ export function NavMenu() {
     setIsMenuOpen(false);
   };
 
+  const handleGoToPopular = () => {
+    dispatch(goToPopular());
+  }
+
   return (
     <div className="Menu_Container">
       <div className="Search_Button_Container">
@@ -49,7 +54,7 @@ export function NavMenu() {
         </button>
       </div>
       <div className="Nav_Buttons_Container">
-        <button className="Nav_Button Popular_Button">
+        <button className="Nav_Button Popular_Button" onClick={handleGoToPopular}>
           <i className="fa-solid fa-arrow-trend-up"></i> Popular
         </button>
         <button className="Nav_Button FAQ_Button">
