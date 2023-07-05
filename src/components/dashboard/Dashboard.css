@@ -15,4 +15,5 @@
   flex-wrap: wrap;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
 }

@@ -3,9 +3,8 @@ import classNames from "classnames";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  addSelectedCategory,
-  removeSelectedCategory,
-  activeCategories,
+  changeSelectedCategory,
+  activeCategory,
   predefinedCategories,
   addCustomSearch,
   goToPopular,
@@ -17,7 +16,7 @@ import { SearchBar } from "../../components/searchBar/SearchBar";
 export function NavMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  const selectedCategories = useSelector(activeCategories);
+  const selectedCategories = useSelector(activeCategory);
   const defaultCategories = useSelector(predefinedCategories);
   const dispatch = useDispatch();
 
@@ -26,10 +25,10 @@ export function NavMenu() {
   };
 
   const handleSelectCategory = (category) => {
-    if (!selectedCategories.includes(category)) {
-      dispatch(addSelectedCategory(category));
+    if (selectedCategories !== category) {
+      dispatch(changeSelectedCategory(category));
     } else {
-      dispatch(removeSelectedCategory(category));
+      dispatch(goToPopular(category));
     }
   };
 

@@ -3,8 +3,7 @@ import logo from "../../images/Logo.svg";
 import { CategoryTag } from "../../components/categoryTag/CategoryTag";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  removeSelectedCategory,
-  activeCategories,
+  activeCategory, goToPopular,
 } from "../../features/navMenu/navMenuSlice";
 import { displayNavBar, setPostActive, setPostNotActive } from "./navBarSlice";
 import { Link } from "react-router-dom";
@@ -12,13 +11,15 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 export function NavBar() {
-  const selectedCategories = useSelector(activeCategories);
+  const selectedCategory = useSelector(activeCategory);
   const dispatch = useDispatch();
   const changeNavBar = useSelector(displayNavBar);
   const location = useLocation();
 
   const handleRemoveSelectedCategory = (category) => {
-    dispatch(removeSelectedCategory(category));
+    if (selectedCategory !== 'Popular') {
+      dispatch(goToPopular(category));
+    }
   };
 
   const handleExitPost = () => {
@@ -40,13 +41,10 @@ export function NavBar() {
           <img src={logo} alt="FR logo" className="FR_logo" />
         </div>
         <div className="selected_categories_container">
-          {selectedCategories.map((category, index) => (
             <CategoryTag
-              key={index}
-              category={category}
+              category={selectedCategory}
               onClick={handleRemoveSelectedCategory}
             />
-          ))}
         </div>
       </div>
       <div className={changeNavBar === "post" ? "display" : "hidden"}>

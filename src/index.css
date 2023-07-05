@@ -33,7 +33,7 @@ a {
   color: #252525
 }
 
-img {
+img, video {
   display: block;
 }
 
