@@ -3,7 +3,7 @@ import "./CategoryTag.css";
 import { useEffect, useState } from "react";
 
 export function CategoryTag(props) {
-  const { category, onClick, selectedCategories } = props;
+  const { category, handleSelectCategory, selectedCategories } = props;
   const [activeTag, setActiveTag] = useState(false);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export function CategoryTag(props) {
         CategoryTagSelected: activeTag === true,
       })}
       aria-label="Category Button"
-      onClick={() => onClick(category)}
+      onClick={() => handleSelectCategory(category)}
     >
       <p className="Category_Name">{category}</p>
     </button>

@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
 import { activePostId } from "../../features/navBar/navBarSlice";
 import "./PostPage.css";
-import { useOutletContext } from "react-router-dom";
-import { CommentCard } from "../commentCard/CommentCard";
+// import { CommentCard } from "../commentCard/CommentCard";
 import { dateCalculator } from "../../data/dateCalculator";
 import { selectedPosts } from "../../features/navMenu/navMenuSlice";
 
@@ -17,7 +16,7 @@ export function PostPage() {
     // thumbnail,
     created,
     preview,
-    id,
+    // id,
     author,
     num_comments,
     // permalink,

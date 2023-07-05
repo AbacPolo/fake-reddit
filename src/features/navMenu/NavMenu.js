@@ -8,6 +8,8 @@ import {
   predefinedCategories,
   addCustomSearch,
   goToPopular,
+  loadSelectedCategory,
+  loadPopularPosts,
 } from "./navMenuSlice";
 import { Link } from "react-router-dom";
 import { CategoriesDisplay } from "../../components/categoriesDisplay/CategoriesDisplay";
@@ -24,11 +26,15 @@ export function NavMenu() {
     isMenuOpen === false ? setIsMenuOpen(true) : setIsMenuOpen(false);
   };
 
-  const handleSelectCategory = (category) => {
+    const handleSelectCategory = (category) => {
+    console.log('selectedCategories',selectedCategories);
+    console.log('category',category);
     if (selectedCategories !== category) {
       dispatch(changeSelectedCategory(category));
+      dispatch(loadSelectedCategory(category));
     } else {
       dispatch(goToPopular(category));
+      dispatch(loadPopularPosts());
     }
   };
 

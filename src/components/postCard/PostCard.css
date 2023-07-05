@@ -34,8 +34,9 @@
 }
 
 .PostCard_Container h4 {
+  font-family: 'Open Sans';
   font-size: 1rem;
-  line-height: 1rem;
+  line-height: 1.2rem;
 }
 
 

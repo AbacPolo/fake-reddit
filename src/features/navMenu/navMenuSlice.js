@@ -5,24 +5,23 @@ import { objectRequest } from "../../data/exampleJSON";
 export const loadPopularPosts = createAsyncThunk(
   "categories/loadPopularPosts",
   async () => {
-    //  const data = await fetch("https:ww.reddit.com/r/popular/top.json");
-    //  const json = await data.json();
-    //  const filteredJson = filterRequestResponse(json);
-    const filteredJson = filterRequestResponse(objectRequest);
+    const data = await fetch("https:ww.reddit.com/r/popular/top.json");
+    const json = await data.json();
+    const filteredJson = filterRequestResponse(json);
+    // const filteredJson = filterRequestResponse(objectRequest);
     return filteredJson;
   }
 );
 
-// export const loadSelectedCategory = createAsyncThunk(
-//   "categories/loadSelectedCategory",
-//   async () => {
-//     //  const data = await fetch("https:ww.reddit.com/r/popular/top.json");
-//     //  const json = await data.json();
-//     //  const filteredJson = filterRequestResponse(json);
-//     const filteredJson = filterRequestResponse(objectRequest);
-//     return filteredJson;
-//   }
-// );
+export const loadSelectedCategory = createAsyncThunk(
+  "categories/loadSelectedCategory",
+  async (category) => {
+    const data = await fetch(`https://www.reddit.com/search.json?q=${category}`);
+    const json = await data.json();
+    const filteredJson = filterRequestResponse(json);
+    return filteredJson;
+  }
+);
 
 export const categoriesSlice = createSlice({
   name: "categories",
@@ -73,6 +72,19 @@ export const categoriesSlice = createSlice({
         state.isLoadingPosts = false;
         state.hasError = true;
         state.posts = [];
+      })
+      .addCase(loadSelectedCategory.pending, (state) => {
+        state.isLoadingPosts = true;
+        state.hasError = false;
+      })
+      .addCase(loadSelectedCategory.fulfilled, (state, action) => {
+        state.isLoadingPosts = false;
+        state.posts = action.payload;
+      })
+      .addCase(loadSelectedCategory.rejected, (state) => {
+        state.isLoadingPosts = false;
+        state.hasError = true;
+        state.posts = [];
       });
   },
 });
@@ -80,8 +92,7 @@ export const categoriesSlice = createSlice({
 export const activeCategory = (state) => state.categories.selectedCategory;
 export const predefinedCategories = (state) =>
   state.categories.predefinedCategories;
-export const selectedPosts = (state) =>
-  state.categories.posts;
+export const selectedPosts = (state) => state.categories.posts;
 export const isLoading = (state) => state.categories.isLoadingPosts;
 export const { changeSelectedCategory, goToPopular, addCustomSearch } =
   categoriesSlice.actions;

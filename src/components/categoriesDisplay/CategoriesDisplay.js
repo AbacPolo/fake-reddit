@@ -12,7 +12,7 @@ export function CategoriesDisplay(props) {
             key={index}
             category={category}
             selectedCategories={selectedCategories}
-            onClick={handleSelectCategory}
+            handleSelectCategory={handleSelectCategory}
           />
         ))}
       </div>

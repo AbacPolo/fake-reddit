@@ -15,6 +15,7 @@ export const filterRequestResponse = (json) => {
         permalink: post.data.permalink,
         url: post.data.url,
         media: post.data.media,
+        is_video: post.data.is_video
     }
     objectOfPosts = {...objectOfPosts, [post.data.id]: postObject};
   });

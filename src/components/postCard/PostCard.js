@@ -21,6 +21,7 @@ export function PostCard({ information }) {
     // permalink,
     url,
     media,
+    is_video
   } = postsToPrint[information];
   const dispatch = useDispatch();
 
@@ -29,6 +30,8 @@ export function PostCard({ information }) {
   };
 
   const {mm, dd, hh} = dateCalculator(created);
+
+  console.log('media',media)
 
   return (
     <Link
@@ -49,17 +52,17 @@ export function PostCard({ information }) {
 
         <h2>{title}</h2>
         {selftext !== "" ? <h4>{selftext}</h4> : null}
-        {preview && !media && preview.enabled && (
+        {preview && !is_video && preview.enabled && (
           <div className="Poste_Image_Container">
             <img className="Poste_Image" src={url} alt="placeholder"></img>
           </div>
         )}
-        {preview && !media && !preview.enabled && (
+        {preview && !is_video && !preview.enabled && (
           <div className="NewsLink_Container">
             <a href={url}>{url}</a>
           </div>
         )}
-        {preview && media && (
+        {is_video && (
           <div className="Poste_Image_Container">
             <video
               className="Poste_Image"

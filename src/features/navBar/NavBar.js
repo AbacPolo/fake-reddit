@@ -4,7 +4,11 @@ import { CategoryTag } from "../../components/categoryTag/CategoryTag";
 import { useDispatch, useSelector } from "react-redux";
 import {
   activeCategory,
+  changeSelectedCategory,
   goToPopular,
+  loadPopularPosts,
+  loadSelectedCategory,
+  predefinedCategories,
 } from "../../features/navMenu/navMenuSlice";
 import { displayNavBar, setPostActive, setPostNotActive } from "./navBarSlice";
 import { Link } from "react-router-dom";
@@ -16,10 +20,17 @@ export function NavBar() {
   const dispatch = useDispatch();
   const changeNavBar = useSelector(displayNavBar);
   const location = useLocation();
+  const selectedCategories = useSelector(activeCategory);
 
-  const handleRemoveSelectedCategory = (category) => {
-    if (selectedCategory !== "Popular") {
+  const handleSelectCategory = (category) => {
+    console.log('selectedCategories',selectedCategories);
+    console.log('category',category);
+    if (selectedCategories !== category) {
+      dispatch(changeSelectedCategory(category));
+      dispatch(loadSelectedCategory(category));
+    } else {
       dispatch(goToPopular(category));
+      dispatch(loadPopularPosts());
     }
   };
 
@@ -44,7 +55,7 @@ export function NavBar() {
         <div className="selected_categories_container">
           <CategoryTag
             category={selectedCategory}
-            onClick={handleRemoveSelectedCategory}
+            handleSelectCategory={handleSelectCategory}
           />
         </div>
       </div>
