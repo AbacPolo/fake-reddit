@@ -82,6 +82,12 @@
   box-sizing: border-box;
 }
 
+.Link_Button {
+  width: 100%;
+  height: 2rem;
+  z-index: 10;
+}
+
 .NewsLink_Container a {
   overflow-wrap: break-word; 
 }

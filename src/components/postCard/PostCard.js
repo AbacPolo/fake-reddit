@@ -30,8 +30,8 @@ export function PostCard({ information }) {
   };
 
   const {mm, dd, hh} = dateCalculator(created);
-
-  console.log('media',media)
+  const onClickLink = `location.href='${url}';`
+  console.log('id',id)
 
   return (
     <Link
@@ -59,7 +59,7 @@ export function PostCard({ information }) {
         )}
         {preview && !is_video && !preview.enabled && (
           <div className="NewsLink_Container">
-            <a href={url}>{url}</a>
+           <p>{url}</p>
           </div>
         )}
         {is_video && (

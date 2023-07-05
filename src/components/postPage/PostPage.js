@@ -46,7 +46,7 @@ export function PostPage() {
         <div className="PostTitle_Container">
           <h2>{title}</h2>
         </div>
-        {selftext !== "" ? <h4>{selftext}</h4> : null}
+        {selftext !== "" ? <h4 className="Selftext">{selftext}</h4> : null}
         {preview && !media && preview.enabled && (
           <div className="Poste_Image_Container">
             <img className="Poste_Image" src={url} alt="placeholder"></img>
