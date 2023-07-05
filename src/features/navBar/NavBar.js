@@ -3,7 +3,8 @@ import logo from "../../images/Logo.svg";
 import { CategoryTag } from "../../components/categoryTag/CategoryTag";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  activeCategory, goToPopular,
+  activeCategory,
+  goToPopular,
 } from "../../features/navMenu/navMenuSlice";
 import { displayNavBar, setPostActive, setPostNotActive } from "./navBarSlice";
 import { Link } from "react-router-dom";
@@ -17,7 +18,7 @@ export function NavBar() {
   const location = useLocation();
 
   const handleRemoveSelectedCategory = (category) => {
-    if (selectedCategory !== 'Popular') {
+    if (selectedCategory !== "Popular") {
       dispatch(goToPopular(category));
     }
   };
@@ -41,10 +42,10 @@ export function NavBar() {
           <img src={logo} alt="FR logo" className="FR_logo" />
         </div>
         <div className="selected_categories_container">
-            <CategoryTag
-              category={selectedCategory}
-              onClick={handleRemoveSelectedCategory}
-            />
+          <CategoryTag
+            category={selectedCategory}
+            onClick={handleRemoveSelectedCategory}
+          />
         </div>
       </div>
       <div className={changeNavBar === "post" ? "display" : "hidden"}>
@@ -54,7 +55,9 @@ export function NavBar() {
           </div>
         </Link>
         <div className="route_container">
-          <p>{location.pathname}</p>
+          <div className="route_wrapper">
+            <p>{location.pathname}</p>
+          </div>
         </div>
       </div>
     </header>

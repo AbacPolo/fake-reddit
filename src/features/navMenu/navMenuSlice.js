@@ -13,6 +13,17 @@ export const loadPopularPosts = createAsyncThunk(
   }
 );
 
+// export const loadSelectedCategory = createAsyncThunk(
+//   "categories/loadSelectedCategory",
+//   async () => {
+//     //  const data = await fetch("https:ww.reddit.com/r/popular/top.json");
+//     //  const json = await data.json();
+//     //  const filteredJson = filterRequestResponse(json);
+//     const filteredJson = filterRequestResponse(objectRequest);
+//     return filteredJson;
+//   }
+// );
+
 export const categoriesSlice = createSlice({
   name: "categories",
   initialState: {

@@ -42,7 +42,6 @@
 .selected_categories_container {
   display: flex;
   gap: 5px;
-  overflow-x: scroll;
 }
 
 .back_arrow {
@@ -55,7 +54,7 @@
 }
 
 
-.route_container {
+.route_wrapper {
   background-color: #D9D9D9;
   box-sizing: border-box;
   padding-top: 5px;
@@ -65,6 +64,7 @@
   border: 0 solid transparent;
   border-radius: 16px;
   height: 32px;
+  width: fit-content;
 }
 
 

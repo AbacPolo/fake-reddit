@@ -17,14 +17,38 @@
 .PostCard_Container p {
   font-size: 1rem;
   line-height: 1rem;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .PostCard_Container h2 {
   font-size: 1.5rem;
   line-height: 1.5rem;
+  letter-spacing: -1px;
   font-weight: 700;
-  text-transform: uppercase;
+}
+
+.PostCard_Container h3 {
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+  font-weight: 500;
+}
+
+.PostCard_Container h4 {
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+
+.PostCard_Header {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.PostCard_subreddit {
+  width: 100%;
 }
 
 .Poste_Image_Container {
