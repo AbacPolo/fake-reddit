@@ -4,6 +4,7 @@ import "./PostPage.css";
 // import { CommentCard } from "../commentCard/CommentCard";
 import { dateCalculator } from "../../data/dateCalculator";
 import { selectedPosts } from "../../features/navMenu/navMenuSlice";
+import { TextFormater } from "../selftextFormater/SelftextFormater";
 
 export function PostPage() {
   const postId = useSelector(activePostId);
@@ -19,12 +20,15 @@ export function PostPage() {
     // id,
     author,
     num_comments,
-    // permalink,
+    permalink,
     url,
     media,
+    is_video,
   } = postsToPrint[postId];
 
   const { mm, dd, hh } = dateCalculator(created);
+
+  const avoidLink = url.includes(permalink);
 
   return (
     <div className="PostPage_Container">
@@ -46,18 +50,18 @@ export function PostPage() {
         <div className="PostTitle_Container">
           <h2>{title}</h2>
         </div>
-        {selftext !== "" ? <h4 className="Selftext">{selftext}</h4> : null}
-        {preview && !media && preview.enabled && (
+        {selftext !== "" ? <TextFormater selftext={selftext} preview={'PostPage'} /> : null}
+        {preview && !is_video && preview.enabled && (
           <div className="Poste_Image_Container">
             <img className="Poste_Image" src={url} alt="placeholder"></img>
           </div>
         )}
-        {preview && !media && !preview.enabled && (
+        {preview && !is_video && !preview.enabled && !avoidLink && (
           <div className="NewsLink_Container">
-            <a href={url}>{url}</a>
+            <a href={url} target="_blank" rel="noreferrer">{url}</a>
           </div>
         )}
-        {preview && media && (
+        {is_video && (
           <div className="Poste_Image_Container">
             <video
               className="Poste_Image"

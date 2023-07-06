@@ -1,6 +1,6 @@
 import "./NavMenu.css";
 import classNames from "classnames";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   changeSelectedCategory,
@@ -18,18 +18,23 @@ import { SearchBar } from "../../components/searchBar/SearchBar";
 export function NavMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  const selectedCategories = useSelector(activeCategory);
+  const selectedCategory = useSelector(activeCategory);
   const defaultCategories = useSelector(predefinedCategories);
   const dispatch = useDispatch();
+
+  useEffect(()=> {
+    isMenuOpen && setIsMenuOpen(false);
+  },[selectedCategory, isMenuOpen])
 
   const handleMenuState = () => {
     isMenuOpen === false ? setIsMenuOpen(true) : setIsMenuOpen(false);
   };
 
-    const handleSelectCategory = (category) => {
-    console.log('selectedCategories',selectedCategories);
-    console.log('category',category);
-    if (selectedCategories !== category) {
+  const handleSelectCategory = (category) => {
+    if (category === 'Popular') {
+      dispatch(goToPopular(category));
+      dispatch(loadPopularPosts());
+    } else if (selectedCategory !== category) {
       dispatch(changeSelectedCategory(category));
       dispatch(loadSelectedCategory(category));
     } else {
@@ -40,15 +45,15 @@ export function NavMenu() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!selectedCategories.includes(searchInput)) {
-      dispatch(addCustomSearch(searchInput));
-    }
+    dispatch(addCustomSearch(searchInput));
+    dispatch(loadSelectedCategory(searchInput));
     setSearchInput("");
     setIsMenuOpen(false);
   };
 
   const handleGoToPopular = () => {
     dispatch(goToPopular());
+    dispatch(loadPopularPosts());
   };
 
   return (
@@ -100,7 +105,7 @@ export function NavMenu() {
           </div>
           <CategoriesDisplay
             defaultCategories={defaultCategories}
-            selectedCategories={selectedCategories}
+            selectedCategory={selectedCategory}
             handleSelectCategory={handleSelectCategory}
           />
         </div>

@@ -2,7 +2,7 @@ import { CategoryTag } from "../categoryTag/CategoryTag";
 import "./CategoriesDisplay.css";
 
 export function CategoriesDisplay(props) {
-  const { defaultCategories, selectedCategories, handleSelectCategory } = props;
+  const { defaultCategories, selectedCategory, handleSelectCategory } = props;
   return (
     <div className="Categories_Container">
       <h3>Categories</h3>
@@ -11,7 +11,7 @@ export function CategoriesDisplay(props) {
           <CategoryTag
             key={index}
             category={category}
-            selectedCategories={selectedCategories}
+            selectedCategory={selectedCategory}
             handleSelectCategory={handleSelectCategory}
           />
         ))}

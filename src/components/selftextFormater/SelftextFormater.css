@@ -1,0 +1,43 @@
+.Selftext_Container {
+  width: 100%;
+}
+
+.LongVersion {
+  width: 100%;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.ShortVersion {
+  width: 100%;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 10rem;
+  overflow: hidden;
+  /* display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical; */
+}
+
+.Selftext_Container b,
+i,
+strike,
+p,
+a,
+h4 {
+  width: fit-content;
+}
+
+.Selftext_Container span {
+  width: 100%;
+  display: block;
+}
+
+.PostLink {
+  color: blue;
+}

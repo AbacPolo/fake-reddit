@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { filterRequestResponse } from "../../data/filterRequestResponse";
-import { objectRequest } from "../../data/exampleJSON";
+// import { objectRequest } from "../../data/exampleJSON";
 
 export const loadPopularPosts = createAsyncThunk(
   "categories/loadPopularPosts",
@@ -16,7 +16,7 @@ export const loadPopularPosts = createAsyncThunk(
 export const loadSelectedCategory = createAsyncThunk(
   "categories/loadSelectedCategory",
   async (category) => {
-    const data = await fetch(`https://www.reddit.com/search.json?q=${category}`);
+    const data = await fetch(`https://www.reddit.com/search.json?q=${category}&sort=hot`);
     const json = await data.json();
     const filteredJson = filterRequestResponse(json);
     return filteredJson;
@@ -44,6 +44,7 @@ export const categoriesSlice = createSlice({
     ],
     selectedCategory: "Popular",
     posts: {},
+    initialLoadDone: false,
     isLoadingPosts: false,
     hasError: false,
   },
@@ -66,6 +67,7 @@ export const categoriesSlice = createSlice({
       })
       .addCase(loadPopularPosts.fulfilled, (state, action) => {
         state.isLoadingPosts = false;
+        state.initialLoadDone = true;
         state.posts = action.payload;
       })
       .addCase(loadPopularPosts.rejected, (state) => {
@@ -94,6 +96,7 @@ export const predefinedCategories = (state) =>
   state.categories.predefinedCategories;
 export const selectedPosts = (state) => state.categories.posts;
 export const isLoading = (state) => state.categories.isLoadingPosts;
+export const initialLoad = (state) => state.categories.initialLoadDone;
 export const { changeSelectedCategory, goToPopular, addCustomSearch } =
   categoriesSlice.actions;
 export default categoriesSlice.reducer;

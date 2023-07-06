@@ -6,22 +6,27 @@ import {
   isLoading,
   loadPopularPosts,
   selectedPosts,
+  initialLoad,
 } from "../../features/navMenu/navMenuSlice";
 
 export function Dashboard() {
   const dispatch = useDispatch();
   const isLoadingPosts = useSelector(isLoading);
   const postsToPrint = useSelector(selectedPosts);
+  const initialLoadDone = useSelector(initialLoad);
 
   useEffect(() => {
-    dispatch(loadPopularPosts());
-  }, [dispatch]);
+    if (initialLoadDone === false) {
+      dispatch(loadPopularPosts());
+    }
+  }, [initialLoadDone, dispatch]);
 
   if (isLoadingPosts) {
     return (
       <div className="Dashboard_Container">
-        <div className="Dashboard_Wrapper"></div>
-        <div>loading state</div>;
+        <div className="LoaderContainer_Wrapper">
+          <div className="LoaderContainer"></div>
+        </div>
       </div>
     );
   }
@@ -29,8 +34,8 @@ export function Dashboard() {
   return (
     <div className="Dashboard_Container">
       <div className="Dashboard_Wrapper">
-        {Object.keys(postsToPrint).map((post, index) => (
-          <PostCard key={index} information={post} />
+        {Object.keys(postsToPrint).map((postID, index) => (
+          <PostCard key={index} postID={postID} />
         ))}
       </div>
     </div>

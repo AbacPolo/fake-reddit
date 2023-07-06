@@ -53,6 +53,9 @@
   font-size: 1.5rem;
 }
 
+.route_container {
+  overflow-y: scroll;
+}
 
 .route_wrapper {
   background-color: #D9D9D9;
@@ -67,8 +70,8 @@
   width: fit-content;
 }
 
-
 .route_container p {
   margin: 0;
+  white-space: nowrap;
   font-family: 'Roboto Mono';
 }

@@ -27,13 +27,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .PostPage_Header_information {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
-  width: 100%;
+  /* width: 100%; */
+  flex-grow: 2;
 }
 
 .PostCard_subreddit {
@@ -41,11 +43,12 @@
 }
 
 .PostPage_Wrapper .Info_Box {
-  width: 100%;
+  /* width: 100%; */
   height: fit-content;
   text-align: right;
   box-sizing: border-box;
   color: #252525;
+  flex-grow: 1;
 }
 
 .PostPage_Container h2 {
@@ -60,6 +63,15 @@
   font-size: 1rem;
   line-height: 1rem;
   font-weight: 200;
+}
+
+.PostTitle_Container {
+  width: 100%;
+}
+
+.Selftext {
+  width: 100%;
+  overflow-wrap: break-word; 
 }
 
 .CommentsTitle_Container {

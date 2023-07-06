@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPostActive } from "../../features/navBar/navBarSlice";
 import { selectedPosts } from "../../features/navMenu/navMenuSlice";
 import { dateCalculator } from "../../data/dateCalculator";
+import { TextFormater } from "../selftextFormater/SelftextFormater";
 
-export function PostCard({ information }) {
+export function PostCard({ postID }) {
   const postsToPrint = useSelector(selectedPosts);
   const {
     subreddit,
@@ -18,25 +19,26 @@ export function PostCard({ information }) {
     id,
     author,
     num_comments,
-    // permalink,
+    permalink,
     url,
     media,
-    is_video
-  } = postsToPrint[information];
+    is_video,
+  } = postsToPrint[postID];
   const dispatch = useDispatch();
 
   const handleEnterPost = (id) => {
     dispatch(setPostActive(id));
   };
 
-  const {mm, dd, hh} = dateCalculator(created);
-  const onClickLink = `location.href='${url}';`
-  console.log('id',id)
+  const { mm, dd, hh } = dateCalculator(created);
 
+  const avoidLink = url.includes(permalink);
+
+  const filteredTitle = title.replace(/\//g, "&frasl;"); //avoid problems if title includes '/'
   return (
     <Link
       className="PostCard_Link"
-      to={`/r/${subreddit}/${title}`}
+      to={`/r/${subreddit}/${filteredTitle}`}
       onClick={() => handleEnterPost(id)}
     >
       <div className="PostCard_Container">
@@ -51,15 +53,17 @@ export function PostCard({ information }) {
         </div>
 
         <h2>{title}</h2>
-        {selftext !== "" ? <h4>{selftext}</h4> : null}
+        {selftext !== "" ? <TextFormater selftext={selftext} preview={'PostCard'} /> : null}
         {preview && !is_video && preview.enabled && (
           <div className="Poste_Image_Container">
             <img className="Poste_Image" src={url} alt="placeholder"></img>
           </div>
         )}
-        {preview && !is_video && !preview.enabled && (
+        {preview && !is_video && !preview.enabled && !avoidLink && (
           <div className="NewsLink_Container">
-           <p>{url}</p>
+            <object>
+              <a className="LinkContainer" href={url}>{url}</a>
+            </object>
           </div>
         )}
         {is_video && (

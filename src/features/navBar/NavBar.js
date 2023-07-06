@@ -8,7 +8,6 @@ import {
   goToPopular,
   loadPopularPosts,
   loadSelectedCategory,
-  predefinedCategories,
 } from "../../features/navMenu/navMenuSlice";
 import { displayNavBar, setPostActive, setPostNotActive } from "./navBarSlice";
 import { Link } from "react-router-dom";
@@ -20,15 +19,12 @@ export function NavBar() {
   const dispatch = useDispatch();
   const changeNavBar = useSelector(displayNavBar);
   const location = useLocation();
-  const selectedCategories = useSelector(activeCategory);
 
   const handleSelectCategory = (category) => {
-    console.log('selectedCategories',selectedCategories);
-    console.log('category',category);
-    if (selectedCategories !== category) {
+    if (selectedCategory !== category) {
       dispatch(changeSelectedCategory(category));
       dispatch(loadSelectedCategory(category));
-    } else {
+    } else if (category !== 'Popular') {
       dispatch(goToPopular(category));
       dispatch(loadPopularPosts());
     }
