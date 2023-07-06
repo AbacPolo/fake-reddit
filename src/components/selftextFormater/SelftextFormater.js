@@ -3,16 +3,33 @@ import classNames from "classnames";
 
 export function TextFormater({ selftext, preview }) {
   const replaceBracketLeft = selftext.replace(/\[/g, "\r[");
-  const replaceParentesiRight = replaceBracketLeft.replace(/\)/g, ")\r");
+
+  const replaceParentesiRight = replaceBracketLeft.replaceAll(") ", ")\r");
   const splitString = replaceParentesiRight.split(/(?:\r\n|\r|\n)/g);
 
-  // console.log(splitString);
+  // console.log("splitString", splitString);
+
+  const replaceWrongSpaces = splitString.map(
+    (word, index) =>
+      (word === " " || word === "  " || word === "   ") ? "" : word
+  );
+
+  const eliminateRedundantSpace = replaceWrongSpaces.filter(
+    (word, index) =>
+      word !== "" || (word === "" && replaceWrongSpaces[index - 1] !== "")
+  );
 
   const textPrinter = (string, index) => {
-    if (string[0] === "*" && string[1] === "*") {
+    if (
+      (string[0] === "*" && string[1] === "*") ||
+      (string[0] === " " && string[1] === "*" && string[2] === "*")
+    ) {
       const stringToPrint = string.replace(/\*/g, "");
       return <b key={index}>{stringToPrint}</b>;
-    } else if ((string[0] === "*" && string[1] !== "*") || (string[1] === "*" && string[2] !== "*")) {
+    } else if (
+      (string[0] === "*" && string[1] !== "*") ||
+      (string[0] === " " && string[1] === "*" && string[2] !== "*")
+    ) {
       const stringToPrint = string.replace(/\*/g, "");
       return <i key={index}>{stringToPrint}</i>;
     } else if (
@@ -21,17 +38,27 @@ export function TextFormater({ selftext, preview }) {
     ) {
       const stringToPrint = string.replace(/~/g, "");
       return <strike key={index}>{stringToPrint}</strike>;
-    } else if (string[0] === "[") {
+    } else if (string[0] === "[" && string.slice(-1) === ")") {
       const prepareSeparateLink = string.replace(/\]/g, "]\r");
       const separateLink = prepareSeparateLink.split(/(?:\r)/g);
       const stringToPrint = separateLink[0].replace(/\[|\]/g, "");
       const stringLink = separateLink[1].replace(/\(|\)/g, "");
       if (preview === "PostCard") {
-        return <p key={index} className="PostLink">{stringToPrint}&nbsp;</p>;
+        return (
+          <p key={index} className="PostLink">
+            {stringToPrint}&nbsp;
+          </p>
+        );
       } else if (preview === "PostPage") {
         return (
-          <a key={index} className="PostLink" href={stringLink} target="_blank" rel="noreferrer">
-            {stringToPrint}&nbsp;  
+          <a
+            key={index}
+            className="PostLink"
+            href={stringLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {stringToPrint}&nbsp;
           </a>
         );
       }
@@ -56,7 +83,9 @@ export function TextFormater({ selftext, preview }) {
           ShortVersion: preview === "PostCard",
         })}
       >
-        {splitString.map((string, index) => textPrinter(string, index))}
+        {eliminateRedundantSpace.map((string, index) =>
+          textPrinter(string, index)
+        )}
       </div>
     </div>
   );

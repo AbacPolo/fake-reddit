@@ -24,7 +24,7 @@ export function NavMenu() {
 
   useEffect(()=> {
     isMenuOpen && setIsMenuOpen(false);
-  },[selectedCategory, isMenuOpen])
+  },[selectedCategory])
 
   const handleMenuState = () => {
     isMenuOpen === false ? setIsMenuOpen(true) : setIsMenuOpen(false);
