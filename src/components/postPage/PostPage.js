@@ -12,6 +12,7 @@ import {
 import { TextFormater } from "../selftextFormater/SelftextFormater";
 import { useEffect } from "react";
 import { CommentCard } from "../commentCard/CommentCard";
+import { getPostTime } from "../postCard/PostCard";
 
 export function PostPage() {
   const postId = useSelector(activePostId);
@@ -58,10 +59,7 @@ export function PostPage() {
             <h3 className="PostCard_subreddit">r/{subreddit}</h3>
             <p>u/{author}</p>
             <p>·</p>
-            <p>
-              {mm < 60 ? mm : hh < 24 ? hh : dd}
-              {mm < 60 ? "m" : hh < 24 ? "h" : "d"}
-            </p>
+            <p>{getPostTime(mm, hh, dd)}</p>
           </div>
           <div className="Info_Box">
             <i className="fa-solid fa-circle-up"></i>

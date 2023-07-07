@@ -6,6 +6,7 @@ import { TextFormater } from "../selftextFormater/SelftextFormater";
 import commentImage from "../../images/comment_image.png";
 import modImage from "../../images/mod_logo.webp";
 import classNames from "classnames";
+import { getPostTime } from "../postCard/PostCard";
 
 export function CommentCard({ commentID }) {
   const commentsToPrint = useSelector(selectedComments);
@@ -32,10 +33,7 @@ export function CommentCard({ commentID }) {
         </div>
         <h4>{comment_author}</h4>
         <p>·</p>
-        <p>
-          {mm < 60 ? mm : hh < 24 ? hh : dd}
-          {mm < 60 ? "m" : hh < 24 ? "h" : "d"}
-        </p>
+        <p>{getPostTime(mm, hh, dd)}</p>
         <div className="Info_Box Comment_Ups">
           <i className="fa-regular fa-thumbs-up"></i>
           <p>{comment_ups}</p>

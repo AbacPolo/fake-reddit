@@ -31,7 +31,7 @@ export function PostCard({ postID }) {
     dispatch(setPostActive(id));
   };
 
-  const { mm, dd, hh } = dateCalculator(created);
+  const { mm, hh, dd } = dateCalculator(created);
 
   const avoidLink = url.includes(permalink);
 
@@ -48,8 +48,7 @@ export function PostCard({ postID }) {
           <p>u/{author}</p>
           <p>·</p>
           <p>
-            {mm < 60 ? mm : hh < 24 ? hh : dd}
-            {mm < 60 ? "m" : hh < 24 ? "h" : "d"}
+            {getPostTime(mm, hh, dd)}
           </p>
         </div>
 
@@ -88,4 +87,14 @@ export function PostCard({ postID }) {
       </div>
     </Link>
   );
+}
+
+export function getPostTime(mm, hh, dd){
+  if (mm < 60) {
+    return `${mm}m`
+  } else if (hh < 24) {
+    return `${hh}h`
+  } else {
+    return `${dd}d`
+  }
 }
