@@ -2,7 +2,6 @@ body {
   width: 100%;
   margin: 0 auto;
   overflow-x: hidden; /* hide horizontal overflow */
-  font-family:'Roboto mono', 'Open sans', sans-serif;
   font-display: inherit;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -22,7 +21,9 @@ h6,
 .h5,
 .h6,
 p,
-a {
+a,
+b,
+i {
   margin: 0;
   padding: 0;
   border: 0;
@@ -30,19 +31,73 @@ a {
   font: inherit;
   vertical-align: baseline;
   text-decoration: none;
-  color: #252525
+  color: #252525;
 }
 
-img, video {
+body h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "IBM Plex Sans", Arial, sans-serif;
+}
+
+body p,
+a,
+b,
+i {
+  font-family: "Noto Sans", Arial, sans-serif;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1rem;
+  line-height: 1.2rem;
+  font-weight: 500;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.2rem;
+  font-weight: 400;
+}
+
+a {
+  font-size: 1rem;
+  line-height: 1.2rem;
+  font-weight: 400;
+  color: blue;
   display: block;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a:hover {
+  color: #ff5700;
+  font-weight: 600;
+}
+
+b, i {
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+
+img,
+video {
+  display: block;
 }
 
 button {
-  font-family: "Roboto mono";
   font-size: 16px;
 }
+

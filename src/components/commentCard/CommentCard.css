@@ -15,15 +15,6 @@
   gap: 8px;
 }
 
-.CommentCard_Header h4 {
-  font-weight: 500;
-}
-
 .CommentText_Container {
   font-family: 'Open Sans';
-}
-
-.CommentText_Container p {
-  line-height: 18px;
-  font-weight: 400;
 }

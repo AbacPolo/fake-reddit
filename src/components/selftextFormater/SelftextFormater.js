@@ -70,9 +70,9 @@ export function TextFormater({ selftext, preview }) {
       );
     } else if (string === "&amp;#x200B;") {
       const changeAND = string.replace("&amp;#x200B;", "&");
-      return <h4 key={index}>{changeAND}</h4>;
+      return <p key={index}>{changeAND}</p>;
     } else {
-      return <h4 key={index}>{string}</h4>;
+      return <p key={index}>{string}</p>;
     }
   };
 

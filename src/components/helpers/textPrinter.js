@@ -33,8 +33,8 @@ export const textPrinter = (string) => {
     );
   } else if (string === "&amp;#x200B;") {
     const changeAND = string.replace("&amp;#x200B;", "&");
-    return <h4>{changeAND}</h4>;
+    return <p>{changeAND}</p>;
   } else {
-    return <h4>{string}</h4>;
+    return <p>{string}</p>;
   }
 };

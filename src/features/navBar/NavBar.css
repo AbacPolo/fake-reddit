@@ -71,7 +71,5 @@
 }
 
 .route_container p {
-  margin: 0;
   white-space: nowrap;
-  font-family: 'Roboto Mono';
 }

@@ -44,13 +44,16 @@ export function PostPage() {
             </p>
           </div>
           <div className="Info_Box">
-            <i className="fa-solid fa-circle-up"></i> {ups}
+            <i className="fa-solid fa-circle-up"></i>
+            <p>{ups}</p>
           </div>
         </div>
         <div className="PostTitle_Container">
           <h2>{title}</h2>
         </div>
-        {selftext !== "" ? <TextFormater selftext={selftext} preview={'PostPage'} /> : null}
+        {selftext !== "" ? (
+          <TextFormater selftext={selftext} preview={"PostPage"} />
+        ) : null}
         {preview && !is_video && preview.enabled && (
           <div className="Poste_Image_Container">
             <img className="Poste_Image" src={url} alt="placeholder"></img>
@@ -58,7 +61,9 @@ export function PostPage() {
         )}
         {preview && !is_video && !preview.enabled && !avoidLink && (
           <div className="NewsLink_Container">
-            <a href={url} target="_blank" rel="noreferrer">{url}</a>
+            <a href={url} target="_blank" rel="noreferrer">
+              {url}
+            </a>
           </div>
         )}
         {is_video && (
@@ -74,7 +79,7 @@ export function PostPage() {
         <div className="CommentsTitle_Container">
           <h3>Comments</h3>
           <div className="Info_Box">
-            <i className="fa-solid fa-comments"></i> {num_comments}
+            <i className="fa-solid fa-comments"></i> <p>{num_comments}</p>
           </div>
         </div>
         <div className="CommentCards_Container">
