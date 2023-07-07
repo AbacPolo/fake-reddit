@@ -3,9 +3,15 @@ import { activePostId } from "../../features/navBar/navBarSlice";
 import "./PostPage.css";
 // import { CommentCard } from "../commentCard/CommentCard";
 import { dateCalculator } from "../../data/dateCalculator";
-import { loadPostComments, selectedPosts } from "../../features/navMenu/navMenuSlice";
+import {
+  loadPostComments,
+  selectedComments,
+  selectedPosts,
+  loadingComments,
+} from "../../features/navMenu/navMenuSlice";
 import { TextFormater } from "../selftextFormater/SelftextFormater";
 import { useEffect } from "react";
+import { CommentCard } from "../commentCard/CommentCard";
 
 export function PostPage() {
   const postId = useSelector(activePostId);
@@ -27,13 +33,18 @@ export function PostPage() {
     media,
     is_video,
   } = postsToPrint[postId];
+
+  const isLoadingComments = useSelector(loadingComments);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (postId !== '') {
+    if (postId !== "") {
       dispatch(loadPostComments(permalink));
     }
-  }, [postId])
+  }, [postId]);
+
+  const commentsToPrint = useSelector(selectedComments);
 
   const { mm, dd, hh } = dateCalculator(created);
 
@@ -92,9 +103,13 @@ export function PostPage() {
           </div>
         </div>
         <div className="CommentCards_Container">
-          {/* {comments.map((comment, index) => (
-            <CommentCard key={index} information={comment} />
-          ))} */}
+          {isLoadingComments === true ? (
+            <div className="LoaderContainer"></div>
+          ) : (
+            Object.keys(commentsToPrint).map((commentID, index) => (
+              <CommentCard key={index} commentID={commentID} />
+            ))
+          )}
         </div>
       </div>
     </div>

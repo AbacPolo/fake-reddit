@@ -1,6 +1,7 @@
 .CommentCard_Wrapper {
   background-color: #f9f9f9;
   padding: 12px;
+  padding-bottom: 0;
   border: 0 solid transparent;
   border-radius: 6px;
   display: flex;
@@ -13,8 +14,44 @@
   align-content: center;
   align-items: center;
   gap: 8px;
+  height: 2rem;
+}
+
+.ProfilePicture_Container {
+  height: 100%;
+  width: 2rem;
+  border: 0px solid #252525;
+  border-radius: 16px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: rgb(255, 87, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 87, 0, 0.5) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 .CommentText_Container {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
+}
+
+.AutoModComment {
+  height: 13rem;
+  overflow: scroll;
+  margin-bottom: 12px;
+}
+
+img {
+  width: 100%;
+}
+
+.Comment_Ups {
+  width: fit-content;
+  justify-content: left;
+}
+
+.Comment_Ups i,
+.Comment_Ups p {
+  color: #7c7c7c;
 }

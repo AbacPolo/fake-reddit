@@ -57,6 +57,7 @@
   display: flex;
   justify-content: right;
   gap: 6px;
+  align-items: center;
 }
 
 .PostTitle_Container {
@@ -74,6 +75,7 @@
 }
 
 .CommentCards_Container {
+  width: 100%;
   display: flex;
   gap: 16px;
   flex-direction: column;

@@ -28,9 +28,8 @@ export const loadPostComments = createAsyncThunk(
   async (permalink) => {
     const data = await fetch(`https://www.reddit.com${permalink}.json`);
     const json = await data.json();
-    console.log(json);
-    // const filteredJson = filterCommentsRequestResponse(json);
-    // return filteredJson;
+    const filteredJson = filterCommentsRequestResponse(json);
+    return filteredJson;
   }
 );
 
@@ -124,6 +123,8 @@ export const predefinedCategories = (state) =>
 export const selectedPosts = (state) => state.categories.posts;
 export const isLoading = (state) => state.categories.isLoadingPosts;
 export const initialLoad = (state) => state.categories.initialLoadDone;
+export const selectedComments = (state) => state.categories.activePostComments;
+export const loadingComments = (state) => state.categories.isLoadingComments;
 export const { changeSelectedCategory, goToPopular, addCustomSearch } =
   categoriesSlice.actions;
 export default categoriesSlice.reducer;
