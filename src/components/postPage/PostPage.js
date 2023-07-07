@@ -36,7 +36,7 @@ export function PostPage() {
   } = postsToPrint[postId];
 
   const isLoadingComments = useSelector(loadingComments);
-
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -46,6 +46,7 @@ export function PostPage() {
   }, [postId]);
 
   const commentsToPrint = useSelector(selectedComments);
+  console.log('commentsToPrint',commentsToPrint);
 
   const { mm, dd, hh } = dateCalculator(created);
 
@@ -102,7 +103,9 @@ export function PostPage() {
         </div>
         <div className="CommentCards_Container">
           {isLoadingComments === true ? (
-            <div className="LoaderContainer"></div>
+            <div className="LoaderContainer_Wrapper">
+              <div className="LoaderContainer"></div>
+            </div>
           ) : (
             Object.keys(commentsToPrint).map((commentID, index) => (
               <CommentCard key={index} commentID={commentID} />

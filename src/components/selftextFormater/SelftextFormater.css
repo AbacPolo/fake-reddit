@@ -45,10 +45,6 @@ a {
   flex-wrap: wrap;
 }
 
-.Selftext_Container p, h1, li {
-  margin-bottom: 1rem;
-}
-
 .Selftext_Container span {
   width: 100%;
   display: block;
@@ -59,5 +55,14 @@ a {
 }
 
 .md {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  gap: 16px;
+}
+
+ol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
