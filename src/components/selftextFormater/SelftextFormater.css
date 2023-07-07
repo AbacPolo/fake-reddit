@@ -30,6 +30,23 @@ strong,
 p,
 a {
   width: fit-content;
+  margin-right: 0;
+  margin-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px 3px;
+}
+
+.Selftext_Container li {
+  width: fit-content;
+  margin-right: 0;
+  margin-left: 0;
+  display: list-item;
+  flex-wrap: wrap;
+}
+
+.Selftext_Container p, h1, li {
+  margin-bottom: 1rem;
 }
 
 .Selftext_Container span {
@@ -39,4 +56,8 @@ a {
 
 .PostLink {
   color: blue;
+}
+
+.md {
+  width: 100%;
 }

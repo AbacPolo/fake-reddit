@@ -11,6 +11,7 @@ export function PostCard({ postID }) {
   const {
     subreddit,
     selftext,
+    selftextHTML,
     title,
     ups,
     // thumbnail,
@@ -53,7 +54,7 @@ export function PostCard({ postID }) {
         </div>
 
         <h2>{title}</h2>
-        {selftext !== "" ? <TextFormater selftext={selftext} preview={'PostCard'} /> : null}
+        {selftext !== "" ? <TextFormater selftextHTML={selftextHTML} preview={'PostCard'} /> : null}
         {preview && !is_video && preview.enabled && (
           <div className="Poste_Image_Container">
             <img className="Poste_Image" src={url} alt="placeholder"></img>

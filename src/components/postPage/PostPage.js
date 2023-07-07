@@ -1,10 +1,11 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { activePostId } from "../../features/navBar/navBarSlice";
 import "./PostPage.css";
 // import { CommentCard } from "../commentCard/CommentCard";
 import { dateCalculator } from "../../data/dateCalculator";
-import { selectedPosts } from "../../features/navMenu/navMenuSlice";
+import { loadPostComments, selectedPosts } from "../../features/navMenu/navMenuSlice";
 import { TextFormater } from "../selftextFormater/SelftextFormater";
+import { useEffect } from "react";
 
 export function PostPage() {
   const postId = useSelector(activePostId);
@@ -12,6 +13,7 @@ export function PostPage() {
   const {
     subreddit,
     selftext,
+    selftextHTML,
     title,
     ups,
     // thumbnail,
@@ -25,6 +27,13 @@ export function PostPage() {
     media,
     is_video,
   } = postsToPrint[postId];
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (postId !== '') {
+      dispatch(loadPostComments(permalink));
+    }
+  }, [postId])
 
   const { mm, dd, hh } = dateCalculator(created);
 
@@ -52,7 +61,7 @@ export function PostPage() {
           <h2>{title}</h2>
         </div>
         {selftext !== "" ? (
-          <TextFormater selftext={selftext} preview={"PostPage"} />
+          <TextFormater selftextHTML={selftextHTML} preview={"PostPage"} />
         ) : null}
         {preview && !is_video && preview.enabled && (
           <div className="Poste_Image_Container">

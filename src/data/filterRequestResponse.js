@@ -4,6 +4,7 @@ export const filterRequestResponse = (json) => {
     let postObject = {
         subreddit: post.data.subreddit,
         selftext: post.data.selftext,
+        selftextHTML: post.data.selftext_html,
         title: post.data.title,
         ups: post.data.ups,
         thumbnail: post.data.thumbnail,

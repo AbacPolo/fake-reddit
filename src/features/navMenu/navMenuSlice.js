@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { filterRequestResponse } from "../../data/filterRequestResponse";
+import { filterCommentsRequestResponse } from "../../data/filterCommentsRequestResponse";
 // import { objectRequest } from "../../data/exampleJSON";
 
 export const loadPopularPosts = createAsyncThunk(
@@ -8,7 +9,6 @@ export const loadPopularPosts = createAsyncThunk(
     const data = await fetch("https:ww.reddit.com/r/popular/top.json");
     const json = await data.json();
     const filteredJson = filterRequestResponse(json);
-    // const filteredJson = filterRequestResponse(objectRequest);
     return filteredJson;
   }
 );
@@ -23,9 +23,21 @@ export const loadSelectedCategory = createAsyncThunk(
   }
 );
 
+export const loadPostComments = createAsyncThunk(
+  "categories/loadPostComments",
+  async (permalink) => {
+    const data = await fetch(`https://www.reddit.com${permalink}.json`);
+    const json = await data.json();
+    console.log(json);
+    // const filteredJson = filterCommentsRequestResponse(json);
+    // return filteredJson;
+  }
+);
+
 export const categoriesSlice = createSlice({
   name: "categories",
   initialState: {
+    initialLoadDone: false,
     predefinedCategories: [
       "Popular",
       "Videogames",
@@ -44,9 +56,11 @@ export const categoriesSlice = createSlice({
     ],
     selectedCategory: "Popular",
     posts: {},
-    initialLoadDone: false,
     isLoadingPosts: false,
-    hasError: false,
+    loadingPostsHasError: false,
+    activePostComments: {},
+    isLoadingComments: false,
+    loadingCommentsHasError: false,
   },
   reducers: {
     changeSelectedCategory: (state, action) => {
@@ -63,7 +77,7 @@ export const categoriesSlice = createSlice({
     builder
       .addCase(loadPopularPosts.pending, (state) => {
         state.isLoadingPosts = true;
-        state.hasError = false;
+        state.loadingPostsHasError = false;
       })
       .addCase(loadPopularPosts.fulfilled, (state, action) => {
         state.isLoadingPosts = false;
@@ -72,12 +86,12 @@ export const categoriesSlice = createSlice({
       })
       .addCase(loadPopularPosts.rejected, (state) => {
         state.isLoadingPosts = false;
-        state.hasError = true;
-        state.posts = [];
+        state.loadingPostsHasError = true;
+        state.posts = {};
       })
       .addCase(loadSelectedCategory.pending, (state) => {
         state.isLoadingPosts = true;
-        state.hasError = false;
+        state.loadingPostsHasError = false;
       })
       .addCase(loadSelectedCategory.fulfilled, (state, action) => {
         state.isLoadingPosts = false;
@@ -85,8 +99,21 @@ export const categoriesSlice = createSlice({
       })
       .addCase(loadSelectedCategory.rejected, (state) => {
         state.isLoadingPosts = false;
-        state.hasError = true;
-        state.posts = [];
+        state.loadingPostsHasError = true;
+        state.posts = {};
+      })
+      .addCase(loadPostComments.pending, (state) => {
+        state.isLoadingComments = true;
+        state.loadingCommentsHasError = false;
+      })
+      .addCase(loadPostComments.fulfilled, (state, action) => {
+        state.isLoadingComments = false;
+        state.activePostComments = action.payload;
+      })
+      .addCase(loadPostComments.rejected, (state) => {
+        state.isLoadingComments = false;
+        state.loadingCommentsHasError = true;
+        state.activePostComments = {};
       });
   },
 });
