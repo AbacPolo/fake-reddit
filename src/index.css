@@ -36,17 +36,19 @@ i {
 
 body h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
+h3
+{
   font-family: "IBM Plex Sans", Arial, sans-serif;
 }
 
 body p,
 a,
-b,
-i {
+em,
+strong,
+strike,
+h4,
+h5,
+h6 {
   font-family: "Noto Sans", Arial, sans-serif;
 }
 
@@ -85,11 +87,6 @@ a {
 a:hover {
   color: #ff5700;
   font-weight: 600;
-}
-
-b, i {
-  font-size: 1rem;
-  line-height: 1.2rem;
 }
 
 img,
