@@ -23,16 +23,6 @@ export const loadSelectedCategory = createAsyncThunk(
   }
 );
 
-export const loadPostComments = createAsyncThunk(
-  "categories/loadPostComments",
-  async (permalink) => {
-    const data = await fetch(`https://www.reddit.com${permalink}.json`);
-    const json = await data.json();
-    const filteredJson = filterCommentsRequestResponse(json);
-    return filteredJson;
-  }
-);
-
 export const categoriesSlice = createSlice({
   name: "categories",
   initialState: {
@@ -57,9 +47,6 @@ export const categoriesSlice = createSlice({
     posts: {},
     isLoadingPosts: false,
     loadingPostsHasError: false,
-    activePostComments: {},
-    isLoadingComments: false,
-    loadingCommentsHasError: false,
   },
   reducers: {
     changeSelectedCategory: (state, action) => {
@@ -101,19 +88,6 @@ export const categoriesSlice = createSlice({
         state.loadingPostsHasError = true;
         state.posts = {};
       })
-      .addCase(loadPostComments.pending, (state) => {
-        state.isLoadingComments = true;
-        state.loadingCommentsHasError = false;
-      })
-      .addCase(loadPostComments.fulfilled, (state, action) => {
-        state.isLoadingComments = false;
-        state.activePostComments = action.payload;
-      })
-      .addCase(loadPostComments.rejected, (state) => {
-        state.isLoadingComments = false;
-        state.loadingCommentsHasError = true;
-        state.activePostComments = {};
-      });
   },
 });
 
@@ -123,8 +97,6 @@ export const predefinedCategories = (state) =>
 export const selectedPosts = (state) => state.categories.posts;
 export const isLoading = (state) => state.categories.isLoadingPosts;
 export const initialLoad = (state) => state.categories.initialLoadDone;
-export const selectedComments = (state) => state.categories.activePostComments;
-export const loadingComments = (state) => state.categories.isLoadingComments;
 export const { changeSelectedCategory, goToPopular, addCustomSearch } =
   categoriesSlice.actions;
 export default categoriesSlice.reducer;

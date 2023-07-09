@@ -68,8 +68,11 @@
   border-radius: 16px;
   height: 32px;
   width: fit-content;
+  display: flex;
+  align-items: center;
 }
 
 .route_container p {
   white-space: nowrap;
+  line-height: 1rem;
 }

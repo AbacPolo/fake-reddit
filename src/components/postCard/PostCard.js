@@ -58,7 +58,7 @@ export function PostCard({ postID }) {
   return (
     <Link
       className="PostCard_Link"
-      to={`/r/${subreddit}/${filteredTitle}`}
+      to={`/r/${subreddit}/comments/${id}/${filteredTitle}`}
       onClick={() => handleEnterPost(id)}
     >
       <div className="PostCard_Container">

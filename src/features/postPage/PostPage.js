@@ -1,23 +1,30 @@
 import { useDispatch, useSelector } from "react-redux";
-import { activePostId } from "../../features/navBar/navBarSlice";
+import { activePostId } from "../navBar/navBarSlice";
 import "./PostPage.css";
 // import { CommentCard } from "../commentCard/CommentCard";
 import { dateCalculator } from "../../data/dateCalculator";
+import { selectedPosts } from "../navMenu/navMenuSlice";
 import {
-  loadPostComments,
+  loadPostContent,
   selectedComments,
-  selectedPosts,
   loadingComments,
-} from "../../features/navMenu/navMenuSlice";
-import { TextFormater } from "../selftextFormater/SelftextFormater";
+  selectedPost,
+} from "./postPageSlice";
+import { TextFormater } from "../../components/selftextFormater/SelftextFormater";
 import { useEffect } from "react";
-import { CommentCard } from "../commentCard/CommentCard";
-import { getPostTime } from "../postCard/PostCard";
+import { CommentCard } from "../../components/commentCard/CommentCard";
+import { getPostTime } from "../../components/postCard/PostCard";
 import { useLocation } from "react-router-dom";
 
 export function PostPage() {
+  const location = useLocation();
+  const dispatch = useDispatch();
   const postId = useSelector(activePostId);
+  const commentsToPrint = useSelector(selectedComments);
+  const isLoadingComments = useSelector(loadingComments);
   const postsToPrint = useSelector(selectedPosts);
+  const postsToPrintDirect = useSelector(selectedPost);
+
   const {
     subreddit,
     selftext,
@@ -34,22 +41,38 @@ export function PostPage() {
     url,
     media,
     is_video,
-  } = postsToPrint[postId];
-  const isLoadingComments = useSelector(loadingComments);
-  const dispatch = useDispatch();
+  } = postId ? postsToPrint[postId] : postsToPrintDirect;
 
   useEffect(() => {
-    if (postId !== "") {
-      dispatch(loadPostComments(permalink));
+    if (postId !== "" && commentsToPrint !== "" &&
+    postsToPrintDirect !== "") {
+      dispatch(loadPostContent(permalink));
     }
-  }, [postId]);
-  const commentsToPrint = useSelector(selectedComments);
+  }, [postId, dispatch]);
 
-  const location = useLocation();
-  
+  useEffect(() => {
+    if (
+      commentsToPrint === "" &&
+      postsToPrintDirect === "" &&
+      location.pathname !== "/"
+    ) {
+      dispatch(loadPostContent(location.pathname));
+    }
+  }, [commentsToPrint, postsToPrintDirect, location, dispatch]);
+
   const { mm, dd, hh } = dateCalculator(created);
 
-  const avoidLink = url.includes(permalink); //stops post link to print as news links
+  const avoidLink = permalink ? url.includes(permalink) : false; //stops post link to print as news links
+
+  if (postsToPrintDirect === "" && selftextHTML === undefined) {
+    return (
+      <div className="Dashboard_Container">
+        <div className="LoaderContainer_Wrapper">
+          <div className="LoaderContainer"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="PostPage_Container">

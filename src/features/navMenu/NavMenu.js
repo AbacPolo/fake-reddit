@@ -22,16 +22,16 @@ export function NavMenu() {
   const defaultCategories = useSelector(predefinedCategories);
   const dispatch = useDispatch();
 
-  useEffect(()=> {
+  useEffect(() => {
     isMenuOpen && setIsMenuOpen(false);
-  },[selectedCategory])
+  }, [selectedCategory]);
 
   const handleMenuState = () => {
     isMenuOpen === false ? setIsMenuOpen(true) : setIsMenuOpen(false);
   };
 
   const handleSelectCategory = (category) => {
-    if (category === 'Popular') {
+    if (category === "Popular") {
       dispatch(goToPopular(category));
       dispatch(loadPopularPosts());
     } else if (selectedCategory !== category) {
@@ -74,10 +74,14 @@ export function NavMenu() {
             aria-label="Popular Button"
             onClick={handleGoToPopular}
           >
-            <i className="fa-solid fa-arrow-trend-up"></i> Popular
+            <Link to={`/`} className="Link_Container">
+              <i className="fa-solid fa-arrow-trend-up"></i> Popular
+            </Link>
           </button>
           <button className="Nav_Button FAQ_Button" aria-label="FAQ Button">
-            <i className="fa-regular fa-circle-question"></i> FAQ
+            <Link to={`/`} className="Link_Container">
+              <i className="fa-regular fa-circle-question"></i> FAQ
+            </Link>
           </button>
         </div>
       </div>

@@ -61,11 +61,25 @@
   border-right: 0px solid transparent;
 }
 
+.Link_Container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  color: #252525;
+font-weight: 600;
+}
+
+.Link_Container:hover {
+  color: #252525;
+}
+
 .PopUpMenu_Container {
   background-color: #fff;
   height: 0vh;
   width: 100%;
-  transition: height .75s;
+  transition: height 0.75s;
 }
 
 .MenuIsOpen {
@@ -93,13 +107,13 @@
 }
 
 .BackLogo_Container {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    border: 0 solid transparent;
-    background: none;
-    width: fit-content;
-    padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  border: 0 solid transparent;
+  background: none;
+  width: fit-content;
+  padding: 0;
 }
 
 .fa-arrow-down {

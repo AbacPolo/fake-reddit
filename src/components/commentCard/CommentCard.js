@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { dateCalculator } from "../../data/dateCalculator";
 import "./CommentCard.css";
-import { selectedComments } from "../../features/navMenu/navMenuSlice";
+import { selectedComments } from "../../features/postPage/postPageSlice";
 import { TextFormater } from "../selftextFormater/SelftextFormater";
 import commentImage from "../../images/comment_image.png";
 import modImage from "../../images/mod_logo.webp";

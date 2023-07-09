@@ -10,7 +10,7 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import { Dashboard } from "./components/dashboard/Dashboard";
-import { PostPage } from "./components/postPage/PostPage";
+import { PostPage } from "./features/postPage/PostPage";
 import ErrorPage from "./error-page/error-page";
 
 const container = document.getElementById("root");
@@ -25,10 +25,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <Dashboard />,
+        errorElement: <ErrorPage />,
       },
       {
-        path: "/r/:subreddit/:title",
+        path: "/r/:subreddit/comments/:id/:title",
         element: <PostPage />,
+        errorElement: <ErrorPage />,
       },
     ],
   },
