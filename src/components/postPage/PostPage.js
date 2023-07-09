@@ -13,6 +13,7 @@ import { TextFormater } from "../selftextFormater/SelftextFormater";
 import { useEffect } from "react";
 import { CommentCard } from "../commentCard/CommentCard";
 import { getPostTime } from "../postCard/PostCard";
+import { useLocation } from "react-router-dom";
 
 export function PostPage() {
   const postId = useSelector(activePostId);
@@ -34,9 +35,7 @@ export function PostPage() {
     media,
     is_video,
   } = postsToPrint[postId];
-
   const isLoadingComments = useSelector(loadingComments);
-  
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -44,13 +43,13 @@ export function PostPage() {
       dispatch(loadPostComments(permalink));
     }
   }, [postId]);
-
   const commentsToPrint = useSelector(selectedComments);
-  console.log('commentsToPrint',commentsToPrint);
 
+  const location = useLocation();
+  
   const { mm, dd, hh } = dateCalculator(created);
 
-  const avoidLink = url.includes(permalink);
+  const avoidLink = url.includes(permalink); //stops post link to print as news links
 
   return (
     <div className="PostPage_Container">
