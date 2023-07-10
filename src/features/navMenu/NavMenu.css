@@ -1,4 +1,10 @@
-.Menu_Container {
+.All_Menus_Container {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.Menu_Container_Phone {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -68,7 +74,7 @@
   width: 100%;
   height: 100%;
   color: #252525;
-font-weight: 600;
+  font-weight: 600;
 }
 
 .Link_Container:hover {
@@ -118,4 +124,83 @@ font-weight: 600;
 
 .fa-arrow-down {
   font-size: 1.5rem;
+}
+
+.Menu_Container_Desktop {
+  display: none;
+  position: fixed;
+  top: 58px;
+  left: 0;
+  width: fit-content;
+  height: 100%;
+  z-index: 1;
+  transition: bottom 1s;
+  border-right: 2px solid #aaaaaa;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-shadow: 2px 0px 5px 0px rgba(37, 37, 37, 0.3);
+  background-color: #fff;
+}
+
+.Desktop_NavMenu_Container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.Desktop_Menu_Button {
+  background: none;
+  border: none;
+  padding: 4px;
+  aspect-ratio: 1/1;
+  width: 3rem;
+  box-sizing: border-box;
+  font-size: 2rem;
+}
+
+.Desktop_Menu_Button .fa-arrow-left {
+  font-size: 2rem;
+}
+
+.Desktop_Menu_Button a {
+  font-size: 2rem;
+}
+
+.Desktop_PopUpMenu_Container {
+  background-color: #fff;
+  width: 0px;
+  height: 100%;
+  transition: width 0.75s, padding-right 0.75s;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.Desktop_MenuIsOpen {
+  width: 300px;
+  padding-right: 1rem;
+}
+
+.Desktop_PopUpMenu_Wrapper {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin-right: 16px;
+}
+
+.Desktop_SearchBar_Container {
+  width: 100%;
+  height: 2rem;
+}
+
+@media only screen and (min-width: 821px) {
+  .Menu_Container_Phone {
+    display: none;
+  }
+
+  .Menu_Container_Desktop {
+    display: flex;
+  }
 }

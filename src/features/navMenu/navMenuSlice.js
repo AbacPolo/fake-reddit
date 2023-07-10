@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { filterRequestResponse } from "../../data/filterRequestResponse";
-import { filterCommentsRequestResponse } from "../../data/filterCommentsRequestResponse";
-// import { objectRequest } from "../../data/exampleJSON";
 
 export const loadPopularPosts = createAsyncThunk(
   "categories/loadPopularPosts",

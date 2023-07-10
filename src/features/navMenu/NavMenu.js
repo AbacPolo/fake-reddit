@@ -57,61 +57,112 @@ export function NavMenu() {
   };
 
   return (
-    <div className="Menu_Container">
-      <div className="NavMenu_Container">
-        <div className="Search_Button_Container">
+    <div className="All_Menus_Container">
+      <div className="Menu_Container_Phone">
+        <div className="NavMenu_Container">
+          <div className="Search_Button_Container">
+            <button
+              className="Search_Button"
+              aria-label="Search Button"
+              onClick={handleMenuState}
+            >
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+          <div className="Nav_Buttons_Container">
+            <button
+              className="Nav_Button Popular_Button"
+              aria-label="Popular Button"
+              onClick={handleGoToPopular}
+            >
+              <Link to={`/`} className="Link_Container">
+                <i className="fa-solid fa-arrow-trend-up"></i> Popular
+              </Link>
+            </button>
+            <button className="Nav_Button FAQ_Button" aria-label="FAQ Button">
+              <Link to={`/`} className="Link_Container">
+                <i className="fa-regular fa-circle-question"></i> FAQ
+              </Link>
+            </button>
+          </div>
+        </div>
+        <div
+          className={classNames("PopUpMenu_Container", {
+            MenuIsOpen: isMenuOpen === true,
+          })}
+        >
+          <div className="PopUpMenu_Wrapper">
+            <div className="SearchBar_Container">
+              <Link to={`/`} className="SearchBar_Link_Container">
+                <button
+                  className="BackLogo_Container"
+                  aria-label="Go Back Button"
+                  onClick={handleMenuState}
+                >
+                  <i className="fa-solid fa-arrow-down"></i>
+                </button>
+              </Link>
+              <SearchBar
+                handleSubmit={handleSubmit}
+                searchInput={searchInput}
+                setSearchInput={setSearchInput}
+              />
+            </div>
+            <CategoriesDisplay
+              defaultCategories={defaultCategories}
+              selectedCategory={selectedCategory}
+              handleSelectCategory={handleSelectCategory}
+            />
+          </div>
+        </div>
+      </div>
+      <div className="Menu_Container_Desktop">
+        <div
+          className={classNames("Desktop_PopUpMenu_Container", {
+            Desktop_MenuIsOpen: isMenuOpen === true,
+          })}
+        >
+          <div className="Desktop_PopUpMenu_Wrapper">
+            <div className="Desktop_SearchBar_Container">
+              <SearchBar
+                handleSubmit={handleSubmit}
+                searchInput={searchInput}
+                setSearchInput={setSearchInput}
+              />
+            </div>
+            <CategoriesDisplay
+              defaultCategories={defaultCategories}
+              selectedCategory={selectedCategory}
+              handleSelectCategory={handleSelectCategory}
+            />
+          </div>
+        </div>
+        <div className="Desktop_NavMenu_Container">
           <button
-            className="Search_Button"
+            className="Desktop_Menu_Button"
             aria-label="Search Button"
             onClick={handleMenuState}
           >
-            <i className="fa-solid fa-magnifying-glass"></i>
+            {isMenuOpen ? (
+              <i className="fa-solid fa-arrow-left"></i>
+            ) : (
+              <i className="fa-solid fa-magnifying-glass"></i>
+            )}
           </button>
-        </div>
-        <div className="Nav_Buttons_Container">
           <button
-            className="Nav_Button Popular_Button"
+            className="Desktop_Menu_Button"
             aria-label="Popular Button"
             onClick={handleGoToPopular}
           >
             <Link to={`/`} className="Link_Container">
-              <i className="fa-solid fa-arrow-trend-up"></i> Popular
+              <i className="fa-solid fa-arrow-trend-up"></i>
             </Link>
           </button>
-          <button className="Nav_Button FAQ_Button" aria-label="FAQ Button">
+          <button className="Desktop_Menu_Button" aria-label="FAQ Button">
             <Link to={`/`} className="Link_Container">
-              <i className="fa-regular fa-circle-question"></i> FAQ
+              <i className="fa-regular fa-circle-question"></i>
             </Link>
           </button>
-        </div>
-      </div>
-      <div
-        className={classNames("PopUpMenu_Container", {
-          MenuIsOpen: isMenuOpen === true,
-        })}
-      >
-        <div className="PopUpMenu_Wrapper">
-          <div className="SearchBar_Container">
-            <Link to={`/`} className="SearchBar_Link_Container">
-              <button
-                className="BackLogo_Container"
-                aria-label="Go Back Button"
-                onClick={handleMenuState}
-              >
-                <i className="fa-solid fa-arrow-down"></i>
-              </button>
-            </Link>
-            <SearchBar
-              handleSubmit={handleSubmit}
-              searchInput={searchInput}
-              setSearchInput={setSearchInput}
-            />
-          </div>
-          <CategoriesDisplay
-            defaultCategories={defaultCategories}
-            selectedCategory={selectedCategory}
-            handleSelectCategory={handleSelectCategory}
-          />
         </div>
       </div>
     </div>

@@ -14,9 +14,9 @@ export function CommentCard({ commentID }) {
     comment_author,
     comment_body_html,
     comment_created,
-    comment_id,
+    // comment_id,
     comment_ups,
-    comment_replies,
+    // comment_replies,
   } = commentsToPrint[commentID];
 
   const { mm, dd, hh } = dateCalculator(comment_created);
@@ -26,9 +26,9 @@ export function CommentCard({ commentID }) {
       <div className="CommentCard_Header">
         <div className="ProfilePicture_Container">
           {comment_author === "AutoModerator" ? (
-            <img src={modImage}></img>
+            <img src={modImage} alt="Moderator profile image"></img>
           ) : (
-            <img src={commentImage}></img>
+            <img src={commentImage} alt="User profile image"></img>
           )}
         </div>
         <h4>{comment_author}</h4>

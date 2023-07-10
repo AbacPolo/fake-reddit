@@ -28,24 +28,6 @@ export function PostCard({ postID }) {
   } = postsToPrint[postID];
   const dispatch = useDispatch();
 
-  function imageFormater () {
-    let srcSetArray = [];
-    preview.images[0].resolutions.forEach((object) => {
-      srcSetArray.push(`${object.url} ${object.width}w`);
-    });
-    const srcSet = srcSetArray.toString();
-  
-    let sizesArray = [];
-    preview.images[0].resolutions.forEach((object) => {
-      sizesArray.push(` (max-width: ${object.width}px) ${object.width}px`);
-    });
-    const sizes = sizesArray.toString();
-  
-    const imageToParse = `<img className="Poste_Image" srcset="${srcSet}" sizes="${sizes}" src="${preview.images[0].source.url}" alt="r/${subreddit} - ${title}"></img>`;
-
-    return imageToParse;
-  }
-
   const handleEnterPost = (id) => {
     dispatch(setPostActive(id));
   };
@@ -76,7 +58,7 @@ export function PostCard({ postID }) {
         {preview && !is_video && preview.enabled && (
           <div className="Poste_Image_Container">
             {/* <img className="Poste_Image" src={url} alt="placeholder"></img> */}
-            {parse(imageFormater())}
+            {parse(imageFormater(preview, title, subreddit))}
           </div>
         )}
         {preview && !is_video && !preview.enabled && !avoidLink && (
@@ -119,4 +101,20 @@ export function getPostTime(mm, hh, dd) {
   } else {
     return `${dd}d`;
   }
+}
+
+export function imageFormater(preview, title, subreddit) {
+  let srcSetArray = [];
+  preview.images[0].resolutions.forEach((object) => {
+    srcSetArray.push(`${object.url} ${object.width}w`);
+  });
+  const srcSet = srcSetArray.toString();
+  let sizesArray = [];
+  preview.images[0].resolutions.forEach((object) => {
+    sizesArray.push(` (max-width: ${object.width}px) ${object.width}px`);
+  });
+  const sizes = sizesArray.toString();
+  const formatedTitle = title.replaceAll('"', "&#34;");
+  const imageToParse = `<img className="Poste_Image" srcset="${srcSet}" sizes="${sizes}" src="${preview.images[0].source.url}" alt="r/${subreddit} - ${formatedTitle}"></img>`;
+  return imageToParse;
 }

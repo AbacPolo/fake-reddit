@@ -1,15 +1,13 @@
 .PostPage_Container {
   box-sizing: border-box;
   position: absolute;
-  top: 58px;
+  top: 0;
   left: 0;
   z-index: 1;
   width: 100%;
-  background-color: #fff;
-  height: calc(100% - 50px - 3.5rem);
-  overflow-y: scroll;
-  padding-top: 12px;
-  padding-bottom: 3rem;
+  height: 100%;
+  padding-top: calc(58px + 12px);
+  padding-bottom: calc(56px + 12px);
 }
 
 .PostPage_Container h2 {
@@ -18,14 +16,21 @@
 }
 
 .PostPage_Wrapper {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  background-color: #fff;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  width: 100%;
   gap: 12px;
-  padding-left: 12px;
-  padding-right: 12px;
-  box-sizing: border-box;
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+  box-shadow: 0px 3px 5px 0px rgba(37, 37, 37, 0.5);
+}
+
+.PostPage_Wrapper .Poste_Image_Container {
+  max-height: none;
 }
 
 .PostPage_Header {
@@ -39,7 +44,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
-  /* width: 100%; */
   flex-grow: 2;
 }
 
@@ -48,7 +52,6 @@
 }
 
 .PostPage_Wrapper .Info_Box {
-  /* width: 100%; */
   height: fit-content;
   text-align: right;
   box-sizing: border-box;
@@ -62,19 +65,18 @@
 
 .PostTitle_Container {
   width: 100%;
-
 }
 
 .Selftext {
   width: 100%;
-  overflow-wrap: break-word; 
+  overflow-wrap: break-word;
 }
 
 .CommentsTitle_Container {
   display: flex;
   justify-content: space-between;
   padding-top: 10px;
-  border-top: 2px solid #AAAAAA;
+  border-top: 2px solid #aaaaaa;
   margin-top: 10px;
 }
 

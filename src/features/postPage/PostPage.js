@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { activePostId } from "../navBar/navBarSlice";
 import "./PostPage.css";
-// import { CommentCard } from "../commentCard/CommentCard";
 import { dateCalculator } from "../../data/dateCalculator";
 import { selectedPosts } from "../navMenu/navMenuSlice";
 import {
@@ -13,8 +12,9 @@ import {
 import { TextFormater } from "../../components/selftextFormater/SelftextFormater";
 import { useEffect } from "react";
 import { CommentCard } from "../../components/commentCard/CommentCard";
-import { getPostTime } from "../../components/postCard/PostCard";
+import { getPostTime, imageFormater } from "../../components/postCard/PostCard";
 import { useLocation } from "react-router-dom";
+import parse from "html-react-parser";
 
 export function PostPage() {
   const location = useLocation();
@@ -44,8 +44,7 @@ export function PostPage() {
   } = postId ? postsToPrint[postId] : postsToPrintDirect;
 
   useEffect(() => {
-    if (postId !== "" && commentsToPrint !== "" &&
-    postsToPrintDirect !== "") {
+    if (postId !== "" && commentsToPrint !== "" && postsToPrintDirect !== "") {
       dispatch(loadPostContent(permalink));
     }
   }, [postId, dispatch]);
@@ -97,7 +96,8 @@ export function PostPage() {
         ) : null}
         {preview && !is_video && preview.enabled && (
           <div className="Poste_Image_Container">
-            <img className="Poste_Image" src={url} alt="placeholder"></img>
+            {/* <img className="Poste_Image" src={url} alt="placeholder"></img> */}
+            {parse(imageFormater(preview, title, subreddit))}
           </div>
         )}
         {preview && !is_video && !preview.enabled && !avoidLink && (
