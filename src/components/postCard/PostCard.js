@@ -83,6 +83,7 @@ export function PostCard({ postID }) {
           <div className="Info_Box">
             <i className="fa-solid fa-circle-up"></i> {ups}
           </div>
+          <p>|</p>
           <div className="Info_Box">
             <i className="fa-solid fa-comments"></i> {num_comments}
           </div>

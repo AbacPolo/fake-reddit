@@ -37,7 +37,7 @@
 
 .AutoModComment {
   max-height: 13rem;
-  overflow: scroll;
+  overflow-y: scroll;
   margin-bottom: 12px;
 }
 
