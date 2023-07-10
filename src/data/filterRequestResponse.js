@@ -20,6 +20,5 @@ export const filterRequestResponse = (json) => {
     }
     objectOfPosts = {...objectOfPosts, [post.data.id]: postObject};
   });
-  console.log("objectOfPosts", objectOfPosts);
   return objectOfPosts;
 };

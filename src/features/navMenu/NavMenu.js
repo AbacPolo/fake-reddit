@@ -65,7 +65,7 @@ export function NavMenu() {
           <div className="Search_Button_Container">
             <button
               className="Search_Button"
-              aria-label="Search Button"
+              aria-label="Open Search Menu Button"
               onClick={handleMenuState}
             >
               <i className="fa-solid fa-magnifying-glass"></i>
@@ -74,14 +74,14 @@ export function NavMenu() {
           <div className="Nav_Buttons_Container">
             <button
               className="Nav_Button Popular_Button"
-              aria-label="Popular Button"
+              aria-label="Go to Popular Button"
               onClick={handleGoToPopular}
             >
               <Link to={`/`} className="Link_Container">
                 <i className="fa-solid fa-arrow-trend-up"></i> Popular
               </Link>
             </button>
-            <button className="Nav_Button FAQ_Button" aria-label="FAQ Button">
+            <button className="Nav_Button FAQ_Button" aria-label="Open FAQ Button">
               <Link to={`/`} className="Link_Container">
                 <i className="fa-regular fa-circle-question"></i> FAQ
               </Link>

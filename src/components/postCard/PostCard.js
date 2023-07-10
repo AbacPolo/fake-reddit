@@ -57,7 +57,6 @@ export function PostCard({ postID }) {
         ) : null}
         {preview && !is_video && preview.enabled && (
           <div className="Poste_Image_Container">
-            {/* <img className="Poste_Image" src={url} alt="placeholder"></img> */}
             {parse(imageFormater(preview, title, subreddit))}
           </div>
         )}
@@ -115,6 +114,6 @@ export function imageFormater(preview, title, subreddit) {
   });
   const sizes = sizesArray.toString();
   const formatedTitle = title.replaceAll('"', "&#34;");
-  const imageToParse = `<img className="Poste_Image" srcset="${srcSet}" sizes="${sizes}" src="${preview.images[0].source.url}" alt="r/${subreddit} - ${formatedTitle}"></img>`;
+  const imageToParse = `<img className="Poste_Image" srcset="${srcSet}" sizes="${sizes}" src="${preview.images[0].source.url}" alt="r/${subreddit} - ${formatedTitle}" loading="lazy"></img>`;
   return imageToParse;
 }
