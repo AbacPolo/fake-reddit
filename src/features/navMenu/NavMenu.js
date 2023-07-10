@@ -11,7 +11,7 @@ import {
   loadSelectedCategory,
   loadPopularPosts,
 } from "./navMenuSlice";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { CategoriesDisplay } from "../../components/categoriesDisplay/CategoriesDisplay";
 import { SearchBar } from "../../components/searchBar/SearchBar";
 
@@ -21,6 +21,7 @@ export function NavMenu() {
   const selectedCategory = useSelector(activeCategory);
   const defaultCategories = useSelector(predefinedCategories);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     isMenuOpen && setIsMenuOpen(false);
@@ -48,6 +49,7 @@ export function NavMenu() {
     dispatch(addCustomSearch(searchInput));
     dispatch(loadSelectedCategory(searchInput));
     setSearchInput("");
+    navigate('/');
     setIsMenuOpen(false);
   };
 
