@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { NavBar } from "./features/navBar/NavBar";
 import { NavMenu } from "./features/navMenu/NavMenu";
-import { BrowserRouter, HashRouter, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (

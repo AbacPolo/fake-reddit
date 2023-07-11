@@ -6,11 +6,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import {
-  BrowserRouter,
-  HashRouter,
   RouterProvider,
   createBrowserRouter,
-  createHashRouter,
 } from "react-router-dom";
 import { Dashboard } from "./components/dashboard/Dashboard";
 import { PostPage } from "./features/postPage/PostPage";
@@ -21,20 +18,20 @@ const root = createRoot(container);
 
 const appRouter = createBrowserRouter([
   {
-    path: "/fake-reddit/",
+    path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/fake-reddit/",
+        path: "/",
         element: <Dashboard />,
         errorElement: <ErrorPage />,
       },
-      // {
-      //   path: "/fake-reddit/r/:subreddit/comments/:id/:title",
-      //   element: <PostPage />,
-      //   errorElement: <ErrorPage />,
-      // },
+      {
+        path: "/r/:subreddit/comments/:id/:title",
+        element: <PostPage />,
+        errorElement: <ErrorPage />,
+      },
     ],
   },
 ]);
@@ -42,9 +39,7 @@ const appRouter = createBrowserRouter([
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
-    <BrowserRouter basename="/fake-reddit">
-      <RouterProvider router={appRouter} />
-    </BrowserRouter>
+    <RouterProvider router={appRouter} />
   </Provider>
   // </React.StrictMode>
 );
