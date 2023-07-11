@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/fake-reddit/static/css/main.cc3ddc43.css",
-    "main.js": "/fake-reddit/static/js/main.9dcee4b4.js",
+    "main.js": "/fake-reddit/static/js/main.fe7df567.js",
     "static/js/787.f1f865d0.chunk.js": "/fake-reddit/static/js/787.f1f865d0.chunk.js",
     "static/media/loading.gif": "/fake-reddit/static/media/loading.803f24369a085e35482e.gif",
     "index.html": "/fake-reddit/index.html",
     "static/media/Logo.svg": "/fake-reddit/static/media/Logo.4ffe718f1f63876bc592f0bae7e1da9a.svg",
     "static/media/mod_logo.webp": "/fake-reddit/static/media/mod_logo.51e707b70ca8ad7138a7.webp",
     "main.cc3ddc43.css.map": "/fake-reddit/static/css/main.cc3ddc43.css.map",
-    "main.9dcee4b4.js.map": "/fake-reddit/static/js/main.9dcee4b4.js.map",
+    "main.fe7df567.js.map": "/fake-reddit/static/js/main.fe7df567.js.map",
     "787.f1f865d0.chunk.js.map": "/fake-reddit/static/js/787.f1f865d0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cc3ddc43.css",
-    "static/js/main.9dcee4b4.js"
+    "static/js/main.fe7df567.js"
   ]
 }
