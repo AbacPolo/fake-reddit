@@ -6,11 +6,15 @@
 
 .Menu_Container_Phone {
   position: fixed;
-  bottom: 0;
+  top: calc(100vh - 56px);
   left: 0;
   width: 100%;
   z-index: 3;
-  transition: bottom 1s;
+  transition: top 1s;
+}
+
+.MenuIsOpen {
+  top: -56px;
 }
 
 .NavMenu_Container {
@@ -83,13 +87,8 @@
 
 .PopUpMenu_Container {
   background-color: #fff;
-  height: 0vh;
-  width: 100%;
-  transition: height 0.75s;
-}
-
-.MenuIsOpen {
   height: 100vh;
+  width: 100%;
 }
 
 .PopUpMenu_Wrapper {
@@ -161,7 +160,7 @@
   font-size: 2rem;
   border: 1px solid #aaaaaa;
   border-radius: 6px;
-  }
+}
 
 .Desktop_Menu_Button:hover {
   outline: 1px solid #252525;

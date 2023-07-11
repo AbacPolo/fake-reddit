@@ -60,7 +60,9 @@ export function NavMenu() {
 
   return (
     <div className="All_Menus_Container">
-      <div className="Menu_Container_Phone">
+      <div className={classNames("Menu_Container_Phone", {
+            MenuIsOpen: isMenuOpen === true,
+          })}>
         <div className="NavMenu_Container">
           <div className="Search_Button_Container">
             <button
@@ -89,10 +91,7 @@ export function NavMenu() {
           </div>
         </div>
         <div
-          className={classNames("PopUpMenu_Container", {
-            MenuIsOpen: isMenuOpen === true,
-          })}
-        >
+          className="PopUpMenu_Container">
           <div className="PopUpMenu_Wrapper">
             <div className="SearchBar_Container">
               <Link to={`/`} className="SearchBar_Link_Container">
