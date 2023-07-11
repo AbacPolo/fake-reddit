@@ -6,11 +6,15 @@
 
 .Menu_Container_Phone {
   position: fixed;
-  bottom: 0;
+  bottom: -100vh;
   left: 0;
   width: 100%;
   z-index: 3;
-  transition: bottom 1s;
+  transition: bottom 0.75s;
+}
+
+.MenuIsOpen {
+  bottom: 0;
 }
 
 .NavMenu_Container {
@@ -83,13 +87,8 @@
 
 .PopUpMenu_Container {
   background-color: #fff;
-  height: 0vh;
-  width: 100%;
-  transition: height 0.75s;
-}
-
-.MenuIsOpen {
   height: 100vh;
+  width: 100%;
 }
 
 .PopUpMenu_Wrapper {
