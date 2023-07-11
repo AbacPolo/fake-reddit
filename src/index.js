@@ -16,7 +16,7 @@ import { PostPage } from "./features/postPage/PostPage";
 import ErrorPage from "./error-page/error-page";
 
 const container = document.getElementById("root");
-const root = createRoot(container);
+const root = ReactDOM.createRoot(container);
 
 const appRouter = createHashRouter([
   {
