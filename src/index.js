@@ -20,17 +20,17 @@ const root = createRoot(container);
 
 const appRouter = createHashRouter([
   {
-    path: "#route/",
+    path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "#route/",
+        path: "/",
         element: <Dashboard />,
         errorElement: <ErrorPage />,
       },
       {
-        path: "#route/r/:subreddit/comments/:id/:title",
+        path: "/r/:subreddit/comments/:id/:title",
         element: <PostPage />,
         errorElement: <ErrorPage />,
       },
