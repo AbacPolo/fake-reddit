@@ -21,12 +21,12 @@ const root = createRoot(container);
 
 const appRouter = createBrowserRouter([
   {
-    path: "/",
+    path: "/fake-reddit/",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/",
+        path: "/fake-reddit/",
         element: <Dashboard />,
         errorElement: <ErrorPage />,
       },
