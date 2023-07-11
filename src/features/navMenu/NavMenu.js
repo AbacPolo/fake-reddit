@@ -91,7 +91,9 @@ export function NavMenu() {
           </div>
         </div>
         <div
-          className="PopUpMenu_Container">
+          className={classNames("PopUpMenu_Container", {
+            PopUpMenu_Container_Height: isMenuOpen === true,
+          })}>
           <div className="PopUpMenu_Wrapper">
             <div className="SearchBar_Container">
               <Link to={`/`} className="SearchBar_Link_Container">
