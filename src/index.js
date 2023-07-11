@@ -31,7 +31,7 @@ const appRouter = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
       {
-        path: "/r/:subreddit/comments/:id/:title",
+        path: "/fake-reddit/r/:subreddit/comments/:id/:title",
         element: <PostPage />,
         errorElement: <ErrorPage />,
       },
