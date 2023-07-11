@@ -17,7 +17,7 @@ import ErrorPage from "./error-page/error-page";
 const container = document.getElementById("root");
 const root = createRoot(container);
 
-const appRouter = createBrowserRouter([
+const appRouter = createHashRouter([
   {
     path: "/",
     element: <App />,
@@ -39,11 +39,9 @@ const appRouter = createBrowserRouter([
 
 root.render(
   // <React.StrictMode>
-  <HashRouter>
     <Provider store={store}>
       <RouterProvider router={appRouter} />
     </Provider>
-  </HashRouter>
   // </React.StrictMode>
 );
 
