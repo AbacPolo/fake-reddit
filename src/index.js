@@ -16,7 +16,7 @@ import { PostPage } from "./features/postPage/PostPage";
 import ErrorPage from "./error-page/error-page";
 
 const container = document.getElementById("root");
-const root = ReactDOM.createRoot(container);
+const root = createRoot(container);
 
 const appRouter = createHashRouter([
   {
@@ -40,11 +40,13 @@ const appRouter = createHashRouter([
 
 root.render(
   // <React.StrictMode>
-  <HashRouter>
-    <Provider store={store}>
+
+  <Provider store={store}>
+    <HashRouter>
       <RouterProvider router={appRouter} />
-    </Provider>
-  </HashRouter>
+    </HashRouter>
+  </Provider>
+
   // </React.StrictMode>
 );
 
