@@ -6,6 +6,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import {
+  HashRouter,
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
@@ -38,9 +39,11 @@ const appRouter = createBrowserRouter([
 
 root.render(
   // <React.StrictMode>
+  <HashRouter>
     <Provider store={store}>
       <RouterProvider router={appRouter} />
     </Provider>
+  </HashRouter>
   // </React.StrictMode>
 );
 
