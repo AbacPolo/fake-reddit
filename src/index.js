@@ -18,7 +18,7 @@ import ErrorPage from "./error-page/error-page";
 const container = document.getElementById("root");
 const root = createRoot(container);
 
-const appRouter = createHashRouter([
+const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
