@@ -4,7 +4,7 @@ import { filterRequestResponse } from "../../data/filterRequestResponse";
 export const loadPopularPosts = createAsyncThunk(
   "categories/loadPopularPosts",
   async () => {
-    const data = await fetch("https:ww.reddit.com/r/popular/top.json");
+    const data = await fetch("https://www.reddit.com/r/popular/top.json");
     const json = await data.json();
     const filteredJson = filterRequestResponse(json);
     return filteredJson;
