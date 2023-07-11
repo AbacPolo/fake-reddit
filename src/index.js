@@ -20,17 +20,17 @@ const root = createRoot(container);
 
 const appRouter = createHashRouter([
   {
-    path: "/",
+    path: "https://abacpolo.github.io/fake-reddit/",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/",
+        path: "https://abacpolo.github.io/fake-reddit/",
         element: <Dashboard />,
         errorElement: <ErrorPage />,
       },
       {
-        path: "/r/:subreddit/comments/:id/:title",
+        path: "https://abacpolo.github.io/fake-reddit/r/:subreddit/comments/:id/:title",
         element: <PostPage />,
         errorElement: <ErrorPage />,
       },
