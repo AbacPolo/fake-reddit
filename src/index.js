@@ -20,17 +20,17 @@ const root = createRoot(container);
 
 const appRouter = createBrowserRouter([
   {
-    path: "/fake-reddit",
+    path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/fake-reddit",
+        path: "/",
         element: <Dashboard />,
         errorElement: <ErrorPage />,
       },
       {
-        path: "/fake-reddit/r/:subreddit/comments/:id/:title",
+        path: "/r/:subreddit/comments/:id/:title",
         element: <PostPage />,
         errorElement: <ErrorPage />,
       },
@@ -41,7 +41,9 @@ const appRouter = createBrowserRouter([
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
-    <RouterProvider router={appRouter} />
+    <BrowserRouter basename="/fake-reddit">
+      <RouterProvider router={appRouter} />
+    </BrowserRouter>
   </Provider>
   // </React.StrictMode>
 );

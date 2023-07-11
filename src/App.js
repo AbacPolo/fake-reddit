@@ -6,16 +6,14 @@ import { BrowserRouter, HashRouter, Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter basename="/fake-reddit">
-      <div className="AppRoot">
-        <div className="AppWrapper">
-          <h1 className="Main_Title">FAKE REDDIT</h1>
-          <NavBar />
-          <Outlet />
-          <NavMenu />
-        </div>
+    <div className="AppRoot">
+      <div className="AppWrapper">
+        <h1 className="Main_Title">FAKE REDDIT</h1>
+        <NavBar />
+        <Outlet />
+        <NavMenu />
       </div>
-    </BrowserRouter>
+    </div>
   );
 }
 
