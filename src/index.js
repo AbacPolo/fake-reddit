@@ -9,6 +9,7 @@ import {
   HashRouter,
   RouterProvider,
   createBrowserRouter,
+  createHashRouter,
 } from "react-router-dom";
 import { Dashboard } from "./components/dashboard/Dashboard";
 import { PostPage } from "./features/postPage/PostPage";
