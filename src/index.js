@@ -6,7 +6,10 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import {
+  HashRouter,
+  Route,
   RouterProvider,
+  Routes,
   createBrowserRouter,
 } from "react-router-dom";
 import { Dashboard } from "./components/dashboard/Dashboard";
@@ -16,30 +19,46 @@ import ErrorPage from "./error-page/error-page";
 const container = document.getElementById("root");
 const root = createRoot(container);
 
-const appRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/",
-        element: <Dashboard />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/r/:subreddit/comments/:id/:title",
-        element: <PostPage />,
-        errorElement: <ErrorPage />,
-      },
-    ],
-  },
-]);
+// const appRouter = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <App />,
+//     errorElement: <ErrorPage />,
+//     children: [
+//       {
+//         path: "/",
+//         element: <Dashboard />,
+//         errorElement: <ErrorPage />,
+//       },
+//       {
+//         path: "/r/:subreddit/comments/:id/:title",
+//         element: <PostPage />,
+//         errorElement: <ErrorPage />,
+//       },
+//     ],
+//   },
+// ]);
 
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
-    <RouterProvider router={appRouter} />
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<App />} errorElement={<ErrorPage />}>
+          <Route
+            path="/"
+            element={<Dashboard />}
+            errorElement={<ErrorPage />}
+          />
+          <Route
+            path="/r/:subreddit/comments/:id/:title"
+            element={<PostPage />}
+            errorElement={<ErrorPage />}
+          />
+        </Route>
+      </Routes>
+      {/* <RouterProvider router={appRouter} /> */}
+    </HashRouter>
   </Provider>
   // </React.StrictMode>
 );

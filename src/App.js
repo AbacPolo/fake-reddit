@@ -4,7 +4,7 @@ import { NavBar } from "./features/navBar/NavBar";
 import { NavMenu } from "./features/navMenu/NavMenu";
 import { Outlet } from "react-router-dom";
 
-function App() {
+export function App() {
   return (
     <div className="AppRoot">
       <div className="AppWrapper">
