@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "//abacpolo.github.io/fake-reddit/static/css/main.0ad1dc8f.css",
-    "main.js": "//abacpolo.github.io/fake-reddit/static/js/main.71fb3be2.js",
-    "static/js/787.f1f865d0.chunk.js": "//abacpolo.github.io/fake-reddit/static/js/787.f1f865d0.chunk.js",
-    "static/media/loading.gif": "//abacpolo.github.io/fake-reddit/static/media/loading.803f24369a085e35482e.gif",
-    "static/media/Logo.svg": "//abacpolo.github.io/fake-reddit/static/media/Logo.4ffe718f1f63876bc592f0bae7e1da9a.svg",
-    "index.html": "//abacpolo.github.io/fake-reddit/index.html",
-    "static/media/mod_logo.webp": "//abacpolo.github.io/fake-reddit/static/media/mod_logo.51e707b70ca8ad7138a7.webp",
-    "main.0ad1dc8f.css.map": "//abacpolo.github.io/fake-reddit/static/css/main.0ad1dc8f.css.map",
-    "main.71fb3be2.js.map": "//abacpolo.github.io/fake-reddit/static/js/main.71fb3be2.js.map",
-    "787.f1f865d0.chunk.js.map": "//abacpolo.github.io/fake-reddit/static/js/787.f1f865d0.chunk.js.map"
+    "main.css": "/fake-reddit/static/css/main.cc3ddc43.css",
+    "main.js": "/fake-reddit/static/js/main.eb4e4231.js",
+    "static/js/787.f1f865d0.chunk.js": "/fake-reddit/static/js/787.f1f865d0.chunk.js",
+    "static/media/loading.gif": "/fake-reddit/static/media/loading.803f24369a085e35482e.gif",
+    "static/media/Logo.svg": "/fake-reddit/static/media/Logo.4ffe718f1f63876bc592f0bae7e1da9a.svg",
+    "index.html": "/fake-reddit/index.html",
+    "static/media/mod_logo.webp": "/fake-reddit/static/media/mod_logo.51e707b70ca8ad7138a7.webp",
+    "main.cc3ddc43.css.map": "/fake-reddit/static/css/main.cc3ddc43.css.map",
+    "main.eb4e4231.js.map": "/fake-reddit/static/js/main.eb4e4231.js.map",
+    "787.f1f865d0.chunk.js.map": "/fake-reddit/static/js/787.f1f865d0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ad1dc8f.css",
-    "static/js/main.71fb3be2.js"
+    "static/css/main.cc3ddc43.css",
+    "static/js/main.eb4e4231.js"
   ]
 }
