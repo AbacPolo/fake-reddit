@@ -18,19 +18,19 @@ import ErrorPage from "./error-page/error-page";
 const container = document.getElementById("root");
 const root = createRoot(container);
 
-const appRouter = createBrowserRouter([
+const appRouter = createHashRouter([
   {
-    path: "/",
+    path: "#/",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/",
+        path: "#/",
         element: <Dashboard />,
         errorElement: <ErrorPage />,
       },
       {
-        path: "/r/:subreddit/comments/:id/:title",
+        path: "#/r/:subreddit/comments/:id/:title",
         element: <PostPage />,
         errorElement: <ErrorPage />,
       },
